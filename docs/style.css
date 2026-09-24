@@ -68,3 +68,85 @@ footer{padding:15px 4px 0;color:#696f72;font-size:8px;font-weight:900;letter-spa
 @media(max-width:900px){.dash{grid-template-columns:1fr 1fr 1fr}.gauge-card{grid-column:span 1}.detail-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){body{padding:10px 7px 26px}.hero{padding-top:7px}.game-logo{width:52px;height:52px}.dash{grid-template-columns:1fr 1fr;border-radius:16px}.gauge-card{grid-template-columns:62px max-content;justify-content:center}.gauge{width:58px;height:58px}.gauge:after{left:28px;top:9px;height:21px;transform-origin:50% 20px}.gauge-readout{padding-bottom:9px;font-size:9px}.gauge-copy strong,.stat strong{font-size:17px}.stat:last-child{grid-column:1/-1}.control-strip{flex-wrap:wrap}.mode-switch{width:100%}.mode-switch button{flex:1;padding:0 7px}.crumb{order:3;width:100%}.map-stage{height:550px;min-height:400px}.race-panel{border-radius:18px}.race-panel-top{font-size:9px}#hover-readout{display:none}.detail-grid{grid-template-columns:1fr 1fr}.radar-label span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){.tooltip{animation:none}}
+
+
+/* Single-viewport adaptive layout */
+html,body{height:100%;overflow:hidden}
+body{height:100dvh;padding:8px 10px}
+.shell{
+  height:calc(100dvh - 16px);
+  display:grid;
+  grid-template-rows:auto auto auto minmax(0,1fr) auto auto;
+  min-height:0;
+}
+.hero{padding:4px 6px 7px;align-items:center}
+.game-logo{width:clamp(46px,6vh,60px);height:clamp(46px,6vh,60px)}
+h1{font-size:clamp(28px,4.8vh,46px)}
+.subtitle{margin-top:4px}
+.dash{padding:6px;gap:6px}
+.gauge-card{padding:5px 8px;grid-template-columns:66px max-content;gap:8px}
+.gauge{width:62px;height:62px}
+.gauge:after{left:30px;top:9px;height:23px;transform-origin:50% 22px}
+.gauge-readout{padding-bottom:10px;font-size:10px}
+.control-strip{padding:8px 4px 6px;min-height:44px}
+.race-panel{min-height:0;display:flex;flex-direction:column}
+.radar-wrap{padding:6px 10px 6px}
+#memory-radar{height:26px}
+.race-panel-top{min-height:28px;padding-bottom:1px}
+.map-stage{height:auto;min-height:0;flex:1}
+.legend{flex-wrap:nowrap;overflow-x:auto;padding:6px 5px 5px;scrollbar-width:none}
+.legend::-webkit-scrollbar{display:none}
+.inspector{min-height:70px;max-height:108px;padding:7px 11px;overflow:auto}
+.inspector-number{width:48px;height:48px;font-size:16px}
+.inspector h2{font-size:16px}
+.detail-grid{margin-top:7px}
+footer{display:none}
+
+@media(max-height:820px) and (min-width:761px){
+  .eyebrow{font-size:9px}
+  .subtitle{font-size:10px}
+  .gauge{width:54px;height:54px}
+  .gauge-card{grid-template-columns:58px max-content;padding:4px 7px}
+  .gauge:after{left:26px;top:8px;height:20px;transform-origin:50% 19px}
+  .gauge-readout{padding-bottom:8px;font-size:9px}
+  .gauge-copy strong,.stat strong{font-size:17px}
+  .gauge-copy span,.stat span{font-size:8px}
+  .gauge-copy small,.stat small{font-size:7px}
+  .control-strip{padding-top:5px;padding-bottom:4px}
+  .inspector{min-height:60px;max-height:88px}
+  .detail-grid{display:none}
+}
+
+@media(max-width:760px){
+  body{padding:5px 5px 7px}
+  .shell{height:calc(100dvh - 12px);grid-template-rows:auto auto auto minmax(0,1fr) auto auto}
+  .hero{padding:2px 4px 4px}
+  .game-logo{width:40px;height:40px}
+  h1{font-size:24px}
+  .eyebrow{font-size:7px}
+  .subtitle{display:none}
+  .dash{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;padding:4px;border-radius:12px}
+  .gauge-card,.stat{min-height:44px;padding:5px 2px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .gauge{display:none}
+  .gauge-copy strong,.stat strong{font-size:10px}
+  .gauge-copy span,.stat span{font-size:6px;letter-spacing:0}
+  .gauge-copy small,.stat small{display:none}
+  .stat:last-child{grid-column:auto}
+  .control-strip{padding:5px 2px 4px;gap:4px;min-height:0}
+  .mode-switch{width:100%;padding:2px}
+  .mode-switch button{min-height:27px;padding:0 4px;font-size:7px}
+  .crumb{display:none}
+  .back{min-height:27px;font-size:7px;margin-left:auto}
+  .race-panel{border-width:3px;border-radius:14px;padding:4px}
+  .radar-wrap{padding:4px 6px 4px}
+  #memory-radar{height:22px}
+  .race-panel-top{min-height:22px;padding:0 7px;font-size:8px}
+  .map-stage{height:auto;min-height:0}
+  .legend{padding:4px 3px 3px;gap:8px;font-size:6.5px}
+  .swatch,.legend-selected i{width:10px;height:10px}
+  .inspector{grid-template-columns:38px 1fr;gap:7px;min-height:52px;max-height:72px;padding:5px 7px;border-radius:12px}
+  .inspector-number{width:34px;height:34px;border-width:3px;font-size:11px}
+  .inspector h2{font-size:11px}
+  .inspector p{font-size:8px;margin-top:2px}
+  .detail-grid{display:none}
+}

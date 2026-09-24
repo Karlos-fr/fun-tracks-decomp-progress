@@ -6,12 +6,13 @@ Public progress tracker for the **Fun Tracks / Ignition** decompilation project.
 
 This repository intentionally publishes only progress metadata and the interactive visualization. The private decompilation source repository is **not** mirrored here.
 
-The map supports two levels:
+The map supports three views:
 
-- **Probable units** — reviewed probable original C compilation units, with drill-down to functions.
 - **All functions** — every tracked function independently, including functions not yet assigned to an original compilation unit.
+- **Probable units** — reviewed probable original C compilation units, with drill-down to functions.
+- **Memory map** — the same functions laid out in address order.
 
-Rectangle area is proportional to function size. Colors represent reconstruction progress.
+The **Code Radar** is interactive: hovering tracks the corresponding function in real time and clicking pins that routine in the inspector. Rectangle area is proportional to function size. Colors represent reconstruction progress. The interface adapts to the viewport so the main dashboard remains a single-screen experience on normal desktop and mobile sizes.
 
 
 ## Deployment

@@ -115,8 +115,17 @@ function drawCornerBrackets(r,color){
   ctx.moveTo(x+2,y+h-l);ctx.lineTo(x+2,y+h-2);ctx.lineTo(x+l,y+h-2);ctx.moveTo(x+w-l,y+h-2);ctx.lineTo(x+w-2,y+h-2);ctx.lineTo(x+w-2,y+h-l);ctx.stroke();
 }
 function drawLabel(r){
-  const{item,x,y,w,h}=r;if(w<48||h<25)return;ctx.save();ctx.beginPath();ctx.rect(x+3,y+3,Math.max(0,w-6),Math.max(0,h-6));ctx.clip();ctx.font='900 11px Arial, sans-serif';ctx.fillStyle='#fff';ctx.shadowColor='#000';ctx.shadowOffsetX=1;ctx.shadowOffsetY=1;ctx.fillText(item.name,x+7,y+17,Math.max(0,w-14));
-  if(h>=43&&w>=78){ctx.font='700 9px Arial, sans-serif';ctx.fillStyle='rgba(255,255,255,.80)';let sub;if(item.kind==='group')sub=item.functions.length+' FUNCTIONS · '+item.exactFunctionPct.toFixed(1)+'% EXACT';else sub=item.address+' · '+fmtBytes(item.size);ctx.fillText(sub,x+7,y+32,Math.max(0,w-14))}ctx.restore();
+  const{item,x,y,w,h}=r;
+  if(item.kind!=='group'||w<48||h<25)return;
+  ctx.save();
+  ctx.beginPath();ctx.rect(x+3,y+3,Math.max(0,w-6),Math.max(0,h-6));ctx.clip();
+  ctx.font='900 11px Arial, sans-serif';ctx.fillStyle='#fff';ctx.shadowColor='#000';ctx.shadowOffsetX=1;ctx.shadowOffsetY=1;
+  ctx.fillText(item.name,x+7,y+17,Math.max(0,w-14));
+  if(h>=43&&w>=78){
+    ctx.font='700 9px Arial, sans-serif';ctx.fillStyle='rgba(255,255,255,.80)';
+    ctx.fillText(item.functions.length+' FUNCTIONS · '+item.exactFunctionPct.toFixed(1)+'% EXACT',x+7,y+32,Math.max(0,w-14));
+  }
+  ctx.restore();
 }
 function drawMemoryLaneLabels(){
   if(state.view!=='memory'||state.drill)return;ctx.save();ctx.font='800 9px Arial, sans-serif';ctx.textBaseline='middle';for(const lane of state.memoryLanes){ctx.fillStyle='#777e82';ctx.fillText(lane.start,7,lane.y+lane.h/2-5);ctx.fillStyle='#42474a';ctx.fillText(lane.end,7,lane.y+lane.h/2+7)}ctx.restore();
@@ -209,6 +218,16 @@ radar.addEventListener('pointerup',e=>{
   const fn=radarFunctionAt(e);
   if(!fn)return;
   e.preventDefault();
+  state.lastTouchAt=performance.now();
+  showDetail(fn);
+  setRadarHover(fn);
+  schedule();
+});
+radar.addEventListener('click',e=>{
+  if(performance.now()-state.lastTouchAt<700)return;
+  const fn=radarFunctionAt(e);
+  if(!fn)return;
+  state.touchArmed=null;
   showDetail(fn);
   setRadarHover(fn);
   schedule();
