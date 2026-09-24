@@ -8,7 +8,7 @@ const STATUS={
   codegen_exact:{label:'Codegen exact',color:'#13a6b2',score:3},
   binary_exact:{label:'Binary exact',color:'#0ca770',score:4}
 };
-const state={data:null,view:'functions',drill:null,rects:[],hovered:null,selected:null};
+const state={data:null,view:'functions',drill:null,rects:[],hovered:null,selected:null,touchArmed:null,lastTouchAt:0};
 const canvas=document.querySelector('#treemap');
 const ctx=canvas.getContext('2d');
 const tooltip=document.querySelector('#tooltip');
@@ -162,14 +162,15 @@ function locate(e){
   const b=canvas.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;
   return state.rects.find(r=>x>=r.x&&x<=r.x+r.w&&y>=r.y&&y<=r.y+r.h)||null;
 }
-function tooltipHtml(i){
+function tooltipHtml(i,touchHint=false){
   if(i.kind==='group'){
     const avg=i.functions.length?i.functions.reduce((s,f)=>s+statusPct(f),0)/i.functions.length:0;
     return '<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.name)+'</div>'+
       '<div class="tooltip-row"><span>FUNCTIONS</span><b>'+i.functions.length+'</b></div>'+
       '<div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+'</b></div>'+
       '<div class="tooltip-row"><span>AVG MATCH</span><b>'+fmtPct(avg)+'</b></div>'+
-      '<div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,avg))+'%"></i></div></div>';
+      '<div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,avg))+'%"></i></div>'+
+      (touchHint?'<div class="tooltip-hint">TAP AGAIN TO OPEN</div>':'')+'</div>';
   }
   const pct=statusPct(i);
   return '<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.symbol)+'</div>'+
@@ -190,9 +191,9 @@ function placeTooltip(e){
   tooltip.style.left=Math.max(8,left)+'px';
   tooltip.style.top=Math.max(8,top)+'px';
 }
-function showTooltip(r,e){
+function showTooltip(r,e,touchHint=false){
   if(!r){tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK';return}
-  tooltip.innerHTML=tooltipHtml(r.item);
+  tooltip.innerHTML=tooltipHtml(r.item,touchHint);
   tooltip.hidden=false;
   placeTooltip(e);
   const i=r.item;
@@ -216,24 +217,75 @@ function showDetail(i){
     '<div><span>STATUS</span><strong>'+esc(STATUS[i.status]?.label||i.status)+'</strong></div>'+
     '</div></div>';
 }
+function itemKey(i){
+  return i.kind==='group'?'group:'+i.name:'fn:'+i.address;
+}
+function clearTouchFocus(){
+  state.touchArmed=null;
+  state.hovered=null;
+  tooltip.hidden=true;
+  hoverReadout.textContent='MOVE OVER A BLOCK';
+}
 canvas.addEventListener('pointermove',e=>{
+  if(e.pointerType==='touch')return;
   const r=locate(e),i=r?.item||null;
   if(i!==state.hovered){state.hovered=i;render()}
   showTooltip(r,e);
 });
-canvas.addEventListener('pointerleave',()=>{
+canvas.addEventListener('pointerleave',e=>{
+  if(e.pointerType==='touch'||state.touchArmed)return;
   state.hovered=null;tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK';render();
 });
+canvas.addEventListener('pointerup',e=>{
+  if(e.pointerType!=='touch')return;
+  const r=locate(e);if(!r)return;
+  e.preventDefault();
+  state.lastTouchAt=performance.now();
+  const i=r.item;
+  const key=itemKey(i);
+  const secondTap=state.touchArmed===key;
+
+  if(!secondTap){
+    state.touchArmed=key;
+    state.hovered=i;
+    state.selected=i;
+    showDetail(i);
+    render();
+    showTooltip(r,e,i.kind==='group');
+    return;
+  }
+
+  showDetail(i);
+  if(i.kind==='group'){
+    state.drill=i.name;
+    clearTouchFocus();
+    state.selected=null;
+    render();
+  }else{
+    state.hovered=i;
+    render();
+    showTooltip(r,e,false);
+  }
+});
 canvas.addEventListener('click',e=>{
+  if(performance.now()-state.lastTouchAt<700)return;
   const r=locate(e);if(!r)return;
   const i=r.item;
+  state.touchArmed=null;
   showDetail(i);
   if(i.kind==='group'){state.drill=i.name;state.hovered=null;tooltip.hidden=true;render()}
   else render();
 });
-back.addEventListener('click',()=>{state.drill=null;state.selected=null;render()});
+document.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='touch'||e.target===canvas)return;
+  if(state.touchArmed){
+    clearTouchFocus();
+    render();
+  }
+});
+back.addEventListener('click',()=>{state.drill=null;state.selected=null;clearTouchFocus();render()});
 buttons.forEach(b=>b.addEventListener('click',()=>{
-  state.view=b.dataset.view;state.drill=null;state.selected=null;state.hovered=null;tooltip.hidden=true;
+  state.view=b.dataset.view;state.drill=null;state.selected=null;clearTouchFocus();
   buttons.forEach(x=>x.classList.toggle('active',x===b));render();
 }));
 addEventListener('resize',render);
