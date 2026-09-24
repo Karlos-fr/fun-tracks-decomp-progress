@@ -11,7 +11,7 @@ const STATUS={
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const state={
   data:null,view:'functions',drill:null,rects:[],displayRects:[],hoveredKey:null,selectedKey:null,
-  touchArmed:null,lastTouchAt:0,hoverStarted:0,transition:null,raf:0,memoryLanes:[],sizeRanks:new Map()
+  touchArmed:null,lastTouchAt:0,hoverStarted:0,transition:null,raf:0,memoryLanes:[],sizeRanks:new Map(),radarRects:[]
 };
 const canvas=document.querySelector('#treemap'),ctx=canvas.getContext('2d');
 const radar=document.querySelector('#memory-radar'),rctx=radar.getContext('2d');
@@ -150,9 +150,69 @@ function clearTouchFocus(){state.touchArmed=null;state.hoveredKey=null;tooltip.h
 function setHover(i){const key=i?itemKey(i):null;if(key!==state.hoveredKey){state.hoveredKey=key;state.hoverStarted=performance.now();schedule()}}
 
 function drawRadar(){
-  if(!state.data)return;const d=resizeCanvas(radar,rctx);rctx.clearRect(0,0,d.width,d.height);const fs=[...state.data.functions].sort((a,b)=>addressNumber(a)-addressNumber(b)),total=fs.reduce((s,f)=>s+Math.max(1,f.size),0)||1;let x=0;
-  for(const f of fs){const w=Math.max(.35,d.width*Math.max(1,f.size)/total);rctx.fillStyle=STATUS[f.status]?.color||STATUS.unknown.color;rctx.fillRect(x,2,w,d.height-4);const key='fn:'+f.address;if(key===state.selectedKey||key===state.hoveredKey){rctx.fillStyle=key===state.selectedKey?'#e43b2e':'#fff7a3';rctx.fillRect(Math.max(0,x-1),0,Math.max(2,w+2),d.height)}x+=w}
+  if(!state.data)return;
+  const d=resizeCanvas(radar,rctx);
+  rctx.clearRect(0,0,d.width,d.height);
+  const fs=[...state.data.functions].sort((a,b)=>addressNumber(a)-addressNumber(b));
+  const total=fs.reduce((s,f)=>s+Math.max(1,f.size),0)||1;
+  let x=0;
+  state.radarRects=[];
+  for(const f of fs){
+    const w=Math.max(.35,d.width*Math.max(1,f.size)/total);
+    state.radarRects.push({item:f,x,w});
+    rctx.fillStyle=STATUS[f.status]?.color||STATUS.unknown.color;
+    rctx.fillRect(x,2,w,d.height-4);
+    const fnKey='fn:'+f.address;
+    const groupKey='group:'+(f.compilation_unit||'UNASSIGNED');
+    const radarHot=fnKey===state.selectedKey||fnKey===state.hoveredKey||groupKey===state.hoveredKey;
+    if(radarHot){
+      rctx.fillStyle=fnKey===state.selectedKey?'#e43b2e':'#fff7a3';
+      rctx.fillRect(Math.max(0,x-1),0,Math.max(2,w+2),d.height);
+    }
+    x+=w;
+  }
 }
+
+function radarFunctionAt(e){
+  const box=radar.getBoundingClientRect();
+  const x=e.clientX-box.left;
+  return state.radarRects.find(r=>x>=r.x&&x<=r.x+r.w)?.item||null;
+}
+function mapEntityForRadarFunction(fn){
+  if(!fn)return null;
+  if(state.view==='units'&&!state.drill){
+    const groupName=fn.compilation_unit||'UNASSIGNED';
+    return state.rects.find(r=>r.item.kind==='group'&&r.item.name===groupName)?.item||null;
+  }
+  return fn;
+}
+function setRadarHover(fn){
+  const entity=mapEntityForRadarFunction(fn);
+  setHover(entity);
+  if(fn){
+    hoverReadout.textContent=fn.address+' · '+fn.symbol;
+  }else{
+    hoverReadout.textContent='MOVE OVER A BLOCK';
+  }
+  schedule();
+}
+radar.addEventListener('pointermove',e=>{
+  if(e.pointerType==='touch')return;
+  setRadarHover(radarFunctionAt(e));
+});
+radar.addEventListener('pointerleave',e=>{
+  if(e.pointerType==='touch')return;
+  setRadarHover(null);
+});
+radar.addEventListener('pointerup',e=>{
+  if(e.pointerType!=='touch')return;
+  const fn=radarFunctionAt(e);
+  if(!fn)return;
+  e.preventDefault();
+  showDetail(fn);
+  setRadarHover(fn);
+  schedule();
+});
 
 canvas.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=locate(e);setHover(r?.item||null);showTooltip(r,e)});
 canvas.addEventListener('pointerleave',e=>{if(e.pointerType==='touch'||state.touchArmed)return;setHover(null);tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK'});
@@ -168,11 +228,27 @@ fetch('data/progress.json').then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);
   const sizes=[...data.functions].sort((a,b)=>b.size-a.size);sizes.forEach((f,index)=>state.sizeRanks.set(f.address,100*(index+1)/sizes.length));
   const first=data.functions[0],last=data.functions[data.functions.length-1];if(first&&last)radarRange.textContent=first.address+' → '+last.address;
   const c=data.summary.status_counts,total=Math.max(1,data.summary.functions),exact=c.binary_exact||0,exactFunctionPct=100*exact/total,exactBytes=data.summary.status_bytes?.binary_exact||data.functions.filter(f=>f.status==='binary_exact').reduce((s,f)=>s+f.size,0),bytePct=100*exactBytes/Math.max(1,data.summary.bytes),angle1=exactFunctionPct*2.7,angle2=bytePct*2.7;
-  stats.innerHTML='<div class="gauge-card"><div class="gauge" style="--angle:'+angle1+'deg;--needle:'+(-135+angle1)+'deg"><div class="gauge-readout">'+exactFunctionPct.toFixed(1)+'%</div></div><div class="gauge-copy"><strong>'+exact+' / '+total+'</strong><span>BINARY EXACT</span><small>functions</small></div></div>'+
-    '<div class="gauge-card"><div class="gauge" style="--angle:'+angle2+'deg;--needle:'+(-135+angle2)+'deg"><div class="gauge-readout">'+bytePct.toFixed(1)+'%</div></div><div class="gauge-copy"><strong>'+fmtBytes(exactBytes)+'</strong><span>EXACT CODE</span><small>of '+fmtBytes(data.summary.bytes)+'</small></div></div>'+
+  stats.innerHTML='<div class="gauge-card"><div class="gauge" data-target-angle="'+angle1+'" data-target-pct="'+exactFunctionPct+'" style="--angle:0deg;--needle:-135deg"><div class="gauge-readout">0.0%</div></div><div class="gauge-copy"><strong>'+exact+' / '+total+'</strong><span>BINARY EXACT</span><small>functions</small></div></div>'+
+    '<div class="gauge-card"><div class="gauge" data-target-angle="'+angle2+'" data-target-pct="'+bytePct+'" style="--angle:0deg;--needle:-135deg"><div class="gauge-readout">0.0%</div></div><div class="gauge-copy"><strong>'+fmtBytes(exactBytes)+'</strong><span>EXACT CODE</span><small>of '+fmtBytes(data.summary.bytes)+'</small></div></div>'+
     '<div class="stat"><strong>'+fmtBytes(data.summary.bytes)+'</strong><span>TRACKED CODE</span><small>'+data.summary.functions.toLocaleString('en-US')+' functions</small></div>'+
     '<div class="stat"><strong>'+(c.codegen_exact||0)+'</strong><span>CODEGEN EXACT</span><small>not yet binary exact</small></div>'+
     '<div class="stat"><strong>'+(data.summary.explicit_compilation_units||0)+'</strong><span>PROBABLE UNITS</span><small>reviewed groupings</small></div>';
+  const gaugeStart=performance.now();
+  const gaugeDuration=reducedMotion?0:1150;
+  const animateGauges=now=>{
+    const t=gaugeDuration===0?1:Math.min(1,(now-gaugeStart)/gaugeDuration);
+    const e=1-Math.pow(1-t,3);
+    document.querySelectorAll('.gauge').forEach(g=>{
+      const angle=Number(g.dataset.targetAngle)||0;
+      const pct=Number(g.dataset.targetPct)||0;
+      g.style.setProperty('--angle',(angle*e)+'deg');
+      g.style.setProperty('--needle',(-135+angle*e)+'deg');
+      const readout=g.querySelector('.gauge-readout');
+      if(readout)readout.textContent=(pct*e).toFixed(1)+'%';
+    });
+    if(t<1)requestAnimationFrame(animateGauges);
+  };
+  requestAnimationFrame(animateGauges);
   state.rects=targetLayout();state.displayRects=state.rects;schedule();
 }).catch(err=>{detail.innerHTML='<div class="inspector-number">!</div><div><h2>DATA ERROR</h2><p>'+esc(err.message)+'</p></div>'});
 })();

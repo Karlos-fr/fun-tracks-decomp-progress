@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Interactive progress map for the Fun Tracks / Ignition decompilation project.">
   <title>Fun Tracks / Ignition — Decomp Progress</title>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <main class="shell">
@@ -34,6 +34,10 @@
     </section>
 
     <section class="race-panel">
+      <div class="radar-wrap">
+        <div class="radar-label"><span>CODE RADAR</span><span id="radar-range">0x00401000 → 0x00469230</span></div>
+        <canvas id="memory-radar" aria-label="Address-ordered overview of the function corpus"></canvas>
+      </div>
       <div class="race-panel-top">
         <span id="map-title">FUNCTION MAP</span>
         <span id="hover-readout">MOVE OVER A BLOCK</span>
@@ -41,10 +45,6 @@
       <div class="map-stage">
         <canvas id="treemap" aria-label="Interactive decompilation progress map"></canvas>
         <div id="tooltip" class="tooltip" hidden></div>
-      </div>
-      <div class="radar-wrap">
-        <div class="radar-label"><span>CODE RADAR</span><span id="radar-range">0x00401000 → 0x00469230</span></div>
-        <canvas id="memory-radar" aria-label="Address-ordered overview of the function corpus"></canvas>
       </div>
     </section>
 
@@ -67,6 +67,6 @@
 
     <footer>PUBLIC PROGRESS METADATA ONLY · NO PRIVATE SOURCE CODE OR INTERNAL EVIDENCE</footer>
   </main>
-  <script src="app.js?v=6" defer></script>
+  <script src="app.js?v=7" defer></script>
 </body>
 </html>
