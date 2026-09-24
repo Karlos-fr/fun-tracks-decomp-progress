@@ -7,15 +7,15 @@
     "status_counts": {
       "unknown": 6,
       "named": 133,
-      "source": 8,
-      "codegen_exact": 156,
+      "source": 156,
+      "codegen_exact": 8,
       "binary_exact": 709
     },
     "status_bytes": {
       "unknown": 3496,
       "named": 240002,
-      "source": 5522,
-      "codegen_exact": 89573,
+      "source": 93306,
+      "codegen_exact": 1789,
       "binary_exact": 103006
     },
     "explicit_compilation_units": 0
@@ -67,7 +67,7 @@
       "raw_match_pct": 5.3333,
       "instruction_match_pct": 54.5455,
       "reccmp_match_pct": 52.381,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00401190",
@@ -91,7 +91,7 @@
       "raw_match_pct": 26.1408,
       "instruction_match_pct": 70.133,
       "reccmp_match_pct": 73.1001,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004016D0",
@@ -115,7 +115,7 @@
       "raw_match_pct": 92.5373,
       "instruction_match_pct": 92.8571,
       "reccmp_match_pct": 35.6436,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00401840",
@@ -175,7 +175,7 @@
       "raw_match_pct": 81.8182,
       "instruction_match_pct": 88.8889,
       "reccmp_match_pct": 97.2222,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00401F00",
@@ -187,7 +187,7 @@
       "raw_match_pct": 4.8048,
       "instruction_match_pct": 15.3846,
       "reccmp_match_pct": 15.3846,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402050",
@@ -199,7 +199,7 @@
       "raw_match_pct": 33.0882,
       "instruction_match_pct": 74.1379,
       "reccmp_match_pct": 77.5862,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004020E0",
@@ -211,7 +211,7 @@
       "raw_match_pct": 88.7218,
       "instruction_match_pct": 75.4386,
       "reccmp_match_pct": 75.4386,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402170",
@@ -223,7 +223,7 @@
       "raw_match_pct": 72.2973,
       "instruction_match_pct": 77.4648,
       "reccmp_match_pct": 77.4648,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402210",
@@ -235,7 +235,7 @@
       "raw_match_pct": 79.6875,
       "instruction_match_pct": 70.8333,
       "reccmp_match_pct": 70.8333,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402250",
@@ -271,7 +271,7 @@
       "raw_match_pct": 6.25,
       "instruction_match_pct": 44.186,
       "reccmp_match_pct": 36.1446,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402320",
@@ -283,7 +283,7 @@
       "raw_match_pct": 29.1667,
       "instruction_match_pct": 80.3738,
       "reccmp_match_pct": 80.3738,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004023B0",
@@ -295,7 +295,7 @@
       "raw_match_pct": 33.758,
       "instruction_match_pct": 81.7391,
       "reccmp_match_pct": 81.7391,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402450",
@@ -307,7 +307,7 @@
       "raw_match_pct": 52.8169,
       "instruction_match_pct": 72.7273,
       "reccmp_match_pct": 72.7273,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004024E0",
@@ -355,7 +355,7 @@
       "raw_match_pct": 62.7119,
       "instruction_match_pct": 69.2308,
       "reccmp_match_pct": 69.2308,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402850",
@@ -367,7 +367,7 @@
       "raw_match_pct": 61.8421,
       "instruction_match_pct": 74.1935,
       "reccmp_match_pct": 71.1864,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004028A0",
@@ -379,7 +379,7 @@
       "raw_match_pct": 21.1538,
       "instruction_match_pct": 59.2593,
       "reccmp_match_pct": 14.2857,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00402940",
@@ -583,7 +583,7 @@
       "raw_match_pct": 67.6768,
       "instruction_match_pct": 71.7949,
       "reccmp_match_pct": 71.7949,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004043D0",
@@ -679,7 +679,7 @@
       "raw_match_pct": 23.8095,
       "instruction_match_pct": 11.1829,
       "reccmp_match_pct": null,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004095F0",
@@ -799,7 +799,7 @@
       "raw_match_pct": 33.3333,
       "instruction_match_pct": 83.6364,
       "reccmp_match_pct": 61.3861,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0040C6E0",
@@ -1015,7 +1015,7 @@
       "raw_match_pct": 39.548,
       "instruction_match_pct": 72.5806,
       "reccmp_match_pct": 56.4516,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0040FEE0",
@@ -1039,7 +1039,7 @@
       "raw_match_pct": 22.807,
       "instruction_match_pct": 77.6699,
       "reccmp_match_pct": 84.1424,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004100B0",
@@ -1339,7 +1339,7 @@
       "raw_match_pct": 19.802,
       "instruction_match_pct": 71.7131,
       "reccmp_match_pct": 79.8354,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004123A0",
@@ -1411,7 +1411,7 @@
       "raw_match_pct": 86.2595,
       "instruction_match_pct": 60,
       "reccmp_match_pct": 60,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00412550",
@@ -1447,7 +1447,7 @@
       "raw_match_pct": 76.1589,
       "instruction_match_pct": 72.043,
       "reccmp_match_pct": null,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004126E0",
@@ -1495,7 +1495,7 @@
       "raw_match_pct": 3.4951,
       "instruction_match_pct": 24.2991,
       "reccmp_match_pct": 14.6032,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00412C70",
@@ -1531,7 +1531,7 @@
       "raw_match_pct": 30.5556,
       "instruction_match_pct": 39.3443,
       "reccmp_match_pct": 17.7778,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00413310",
@@ -1543,7 +1543,7 @@
       "raw_match_pct": 6.9498,
       "instruction_match_pct": 19.4805,
       "reccmp_match_pct": 4.8387,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00413420",
@@ -1687,7 +1687,7 @@
       "raw_match_pct": 73.2394,
       "instruction_match_pct": 96.2963,
       "reccmp_match_pct": 96.2963,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00416190",
@@ -1795,7 +1795,7 @@
       "raw_match_pct": 16.6667,
       "instruction_match_pct": 68.9655,
       "reccmp_match_pct": 51.8519,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00418490",
@@ -1915,7 +1915,7 @@
       "raw_match_pct": 6.3985,
       "instruction_match_pct": 29.1139,
       "reccmp_match_pct": 18.7726,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004198C0",
@@ -1999,7 +1999,7 @@
       "raw_match_pct": 19.2308,
       "instruction_match_pct": 46.4646,
       "reccmp_match_pct": 40.8602,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0041B3F0",
@@ -2035,7 +2035,7 @@
       "raw_match_pct": 67.6647,
       "instruction_match_pct": 94.1176,
       "reccmp_match_pct": 91.0891,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0041CE10",
@@ -2239,7 +2239,7 @@
       "raw_match_pct": 69.5817,
       "instruction_match_pct": 90.1639,
       "reccmp_match_pct": 77.193,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00420D00",
@@ -2491,7 +2491,7 @@
       "raw_match_pct": 27.0386,
       "instruction_match_pct": 72.973,
       "reccmp_match_pct": 54.8495,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00429280",
@@ -2539,7 +2539,7 @@
       "raw_match_pct": 55.8824,
       "instruction_match_pct": 81.8182,
       "reccmp_match_pct": 80,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00429A40",
@@ -2647,7 +2647,7 @@
       "raw_match_pct": 62.8777,
       "instruction_match_pct": 87.1671,
       "reccmp_match_pct": 54.6366,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0042E860",
@@ -2659,7 +2659,7 @@
       "raw_match_pct": 17.505,
       "instruction_match_pct": 50.6667,
       "reccmp_match_pct": 29.6029,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0042EA60",
@@ -2671,7 +2671,7 @@
       "raw_match_pct": 12.1252,
       "instruction_match_pct": 47.8049,
       "reccmp_match_pct": 26.3441,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0042ED60",
@@ -2731,7 +2731,7 @@
       "raw_match_pct": 17.0878,
       "instruction_match_pct": 47.6415,
       "reccmp_match_pct": 43.0446,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00432040",
@@ -2803,7 +2803,7 @@
       "raw_match_pct": 70.5305,
       "instruction_match_pct": 97.2973,
       "reccmp_match_pct": 88.1818,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00434190",
@@ -2815,7 +2815,7 @@
       "raw_match_pct": 64.7177,
       "instruction_match_pct": 83.5735,
       "reccmp_match_pct": 75.2475,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00434380",
@@ -2827,7 +2827,7 @@
       "raw_match_pct": 8.6957,
       "instruction_match_pct": 47.7876,
       "reccmp_match_pct": 47.0238,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00434580",
@@ -2875,7 +2875,7 @@
       "raw_match_pct": 6.7358,
       "instruction_match_pct": 37.2093,
       "reccmp_match_pct": 37.037,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004357A0",
@@ -2887,7 +2887,7 @@
       "raw_match_pct": 78.2334,
       "instruction_match_pct": 95.5556,
       "reccmp_match_pct": 73.3333,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004358E0",
@@ -2935,7 +2935,7 @@
       "raw_match_pct": 7.9208,
       "instruction_match_pct": 27.1739,
       "reccmp_match_pct": 29.0698,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00438220",
@@ -2947,7 +2947,7 @@
       "raw_match_pct": 36.9458,
       "instruction_match_pct": 90.5109,
       "reccmp_match_pct": 79.4118,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004382F0",
@@ -2971,7 +2971,7 @@
       "raw_match_pct": 27.3171,
       "instruction_match_pct": 82.544,
       "reccmp_match_pct": 79.1549,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00438950",
@@ -2983,7 +2983,7 @@
       "raw_match_pct": 23.0769,
       "instruction_match_pct": 87.5862,
       "reccmp_match_pct": 88.3392,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00438B30",
@@ -2995,7 +2995,7 @@
       "raw_match_pct": 8.6986,
       "instruction_match_pct": 48.1477,
       "reccmp_match_pct": null,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0043C4D0",
@@ -3211,7 +3211,7 @@
       "raw_match_pct": 5.4217,
       "instruction_match_pct": 25.641,
       "reccmp_match_pct": 21.875,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00441290",
@@ -3223,7 +3223,7 @@
       "raw_match_pct": 2.6316,
       "instruction_match_pct": 28.9157,
       "reccmp_match_pct": 28.169,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00441330",
@@ -3331,7 +3331,7 @@
       "raw_match_pct": 29.4564,
       "instruction_match_pct": 61.7414,
       "reccmp_match_pct": 57.0667,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00443760",
@@ -3379,7 +3379,7 @@
       "raw_match_pct": 12.024,
       "instruction_match_pct": 47.1074,
       "reccmp_match_pct": 30,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00444F40",
@@ -3391,7 +3391,7 @@
       "raw_match_pct": 57.7836,
       "instruction_match_pct": 87.5576,
       "reccmp_match_pct": 97.2222,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004450C0",
@@ -3403,7 +3403,7 @@
       "raw_match_pct": 12.7848,
       "instruction_match_pct": 46.1883,
       "reccmp_match_pct": 38.4615,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004453E0",
@@ -3427,7 +3427,7 @@
       "raw_match_pct": 24.1234,
       "instruction_match_pct": 46.832,
       "reccmp_match_pct": 38.6076,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00445D30",
@@ -3439,7 +3439,7 @@
       "raw_match_pct": 17.8295,
       "instruction_match_pct": 82.3077,
       "reccmp_match_pct": 76.3052,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00445F40",
@@ -3487,7 +3487,7 @@
       "raw_match_pct": 76.947,
       "instruction_match_pct": 86.0215,
       "reccmp_match_pct": 84.9462,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004462B0",
@@ -3535,7 +3535,7 @@
       "raw_match_pct": 22.4638,
       "instruction_match_pct": 50.4854,
       "reccmp_match_pct": 56.3107,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00446400",
@@ -3643,7 +3643,7 @@
       "raw_match_pct": 27.3465,
       "instruction_match_pct": 64.1283,
       "reccmp_match_pct": 60.9442,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00446D60",
@@ -3667,7 +3667,7 @@
       "raw_match_pct": 17.316,
       "instruction_match_pct": 60.2564,
       "reccmp_match_pct": 61.5385,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00446EC0",
@@ -3679,7 +3679,7 @@
       "raw_match_pct": 19.0635,
       "instruction_match_pct": 63.8498,
       "reccmp_match_pct": 52.1739,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00446FE0",
@@ -3691,7 +3691,7 @@
       "raw_match_pct": 58.4,
       "instruction_match_pct": 75.5556,
       "reccmp_match_pct": 72.7273,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00447060",
@@ -3703,7 +3703,7 @@
       "raw_match_pct": 11.0063,
       "instruction_match_pct": 44.3439,
       "reccmp_match_pct": 47.2222,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004471A0",
@@ -3715,7 +3715,7 @@
       "raw_match_pct": 62.6728,
       "instruction_match_pct": 82.2785,
       "reccmp_match_pct": 64.4295,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00447280",
@@ -3727,7 +3727,7 @@
       "raw_match_pct": 38.9381,
       "instruction_match_pct": 74.6988,
       "reccmp_match_pct": 50.6329,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004472F0",
@@ -3751,7 +3751,7 @@
       "raw_match_pct": 43.8356,
       "instruction_match_pct": 82.3529,
       "reccmp_match_pct": 79.4118,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004473B0",
@@ -3775,7 +3775,7 @@
       "raw_match_pct": 9.0229,
       "instruction_match_pct": 31.1358,
       "reccmp_match_pct": 31.9301,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00448040",
@@ -3811,7 +3811,7 @@
       "raw_match_pct": 23.3161,
       "instruction_match_pct": 47.4394,
       "reccmp_match_pct": 60.9164,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00448320",
@@ -3823,7 +3823,7 @@
       "raw_match_pct": 4.3966,
       "instruction_match_pct": 18.0095,
       "reccmp_match_pct": 25.8389,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00448750",
@@ -3859,7 +3859,7 @@
       "raw_match_pct": 55.9055,
       "instruction_match_pct": 75.5556,
       "reccmp_match_pct": 73.3333,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00448AC0",
@@ -3979,7 +3979,7 @@
       "raw_match_pct": 24.1497,
       "instruction_match_pct": 87.0056,
       "reccmp_match_pct": 75.1445,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044B5A0",
@@ -4039,7 +4039,7 @@
       "raw_match_pct": 10.2273,
       "instruction_match_pct": 18.6916,
       "reccmp_match_pct": 20.5607,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044B7C0",
@@ -4051,7 +4051,7 @@
       "raw_match_pct": 6.4815,
       "instruction_match_pct": 27.2727,
       "reccmp_match_pct": 30.5344,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044B8A0",
@@ -4063,7 +4063,7 @@
       "raw_match_pct": 3.3138,
       "instruction_match_pct": 12.9964,
       "reccmp_match_pct": 13.3858,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044BAB0",
@@ -4075,7 +4075,7 @@
       "raw_match_pct": 3.6053,
       "instruction_match_pct": 16.3701,
       "reccmp_match_pct": 13.1783,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044BCC0",
@@ -4183,7 +4183,7 @@
       "raw_match_pct": 4.3478,
       "instruction_match_pct": 11.6814,
       "reccmp_match_pct": 12.0858,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044D030",
@@ -4195,7 +4195,7 @@
       "raw_match_pct": 8.5366,
       "instruction_match_pct": 11.1842,
       "reccmp_match_pct": 13.3739,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044D220",
@@ -4231,7 +4231,7 @@
       "raw_match_pct": 7.1429,
       "instruction_match_pct": 26.1538,
       "reccmp_match_pct": 30.7692,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044D5A0",
@@ -4243,7 +4243,7 @@
       "raw_match_pct": 12.9187,
       "instruction_match_pct": 24.8062,
       "reccmp_match_pct": 19.2593,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044D680",
@@ -4267,7 +4267,7 @@
       "raw_match_pct": 9.1954,
       "instruction_match_pct": 24.7619,
       "reccmp_match_pct": 24.7619,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0044DD90",
@@ -4411,7 +4411,7 @@
       "raw_match_pct": 27.9236,
       "instruction_match_pct": 90.3226,
       "reccmp_match_pct": 95.1613,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00455D90",
@@ -4423,7 +4423,7 @@
       "raw_match_pct": 26.7261,
       "instruction_match_pct": 88.7218,
       "reccmp_match_pct": 93.985,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00455F50",
@@ -4471,7 +4471,7 @@
       "raw_match_pct": 10.1064,
       "instruction_match_pct": 47.1154,
       "reccmp_match_pct": 44.7761,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004561A0",
@@ -4591,7 +4591,7 @@
       "raw_match_pct": 8.8838,
       "instruction_match_pct": 11.6667,
       "reccmp_match_pct": 34.1667,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00456550",
@@ -4627,7 +4627,7 @@
       "raw_match_pct": 6.0453,
       "instruction_match_pct": 60.3922,
       "reccmp_match_pct": 57.5,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00456790",
@@ -4639,7 +4639,7 @@
       "raw_match_pct": 3.7832,
       "instruction_match_pct": 67.0017,
       "reccmp_match_pct": 65.4991,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00456B70",
@@ -5107,7 +5107,7 @@
       "raw_match_pct": 25.6684,
       "instruction_match_pct": 70.4545,
       "reccmp_match_pct": 56.4706,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00457150",
@@ -5119,7 +5119,7 @@
       "raw_match_pct": 70.6667,
       "instruction_match_pct": 90,
       "reccmp_match_pct": 52.1008,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00457240",
@@ -5191,7 +5191,7 @@
       "raw_match_pct": 5.8201,
       "instruction_match_pct": 22.2222,
       "reccmp_match_pct": 45.6522,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004574A0",
@@ -5203,7 +5203,7 @@
       "raw_match_pct": 25.1462,
       "instruction_match_pct": 60.4651,
       "reccmp_match_pct": 58.1395,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00457550",
@@ -5227,7 +5227,7 @@
       "raw_match_pct": 74.3478,
       "instruction_match_pct": 94.4444,
       "reccmp_match_pct": 80,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004576C0",
@@ -5239,7 +5239,7 @@
       "raw_match_pct": 77.381,
       "instruction_match_pct": 80,
       "reccmp_match_pct": 100,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00457720",
@@ -5503,7 +5503,7 @@
       "raw_match_pct": 76.4045,
       "instruction_match_pct": 86.0759,
       "reccmp_match_pct": 82.2785,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00457FE0",
@@ -5539,7 +5539,7 @@
       "raw_match_pct": 10,
       "instruction_match_pct": 46.5116,
       "reccmp_match_pct": 90.4762,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00458090",
@@ -5719,7 +5719,7 @@
       "raw_match_pct": 67.0996,
       "instruction_match_pct": 87.5,
       "reccmp_match_pct": 90.1042,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004587D0",
@@ -5731,7 +5731,7 @@
       "raw_match_pct": 87.415,
       "instruction_match_pct": 99.2063,
       "reccmp_match_pct": 99.2063,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00458900",
@@ -5743,7 +5743,7 @@
       "raw_match_pct": 3.7217,
       "instruction_match_pct": 37.0813,
       "reccmp_match_pct": 33.0808,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00458DE0",
@@ -5791,7 +5791,7 @@
       "raw_match_pct": 4.1537,
       "instruction_match_pct": 44.7811,
       "reccmp_match_pct": 50.1684,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00459270",
@@ -5803,7 +5803,7 @@
       "raw_match_pct": 3.0928,
       "instruction_match_pct": 43.0868,
       "reccmp_match_pct": 41.4239,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00459460",
@@ -5911,7 +5911,7 @@
       "raw_match_pct": 23.2877,
       "instruction_match_pct": 77.7778,
       "reccmp_match_pct": 65.4206,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004597D0",
@@ -5971,7 +5971,7 @@
       "raw_match_pct": 30.9278,
       "instruction_match_pct": 42.3077,
       "reccmp_match_pct": 48,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00459FB0",
@@ -6019,7 +6019,7 @@
       "raw_match_pct": 40.7609,
       "instruction_match_pct": 82.1918,
       "reccmp_match_pct": 88.2759,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045A3E0",
@@ -6103,7 +6103,7 @@
       "raw_match_pct": 63.1944,
       "instruction_match_pct": 71.4286,
       "reccmp_match_pct": 72.7273,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045A8D0",
@@ -6115,7 +6115,7 @@
       "raw_match_pct": 18.5714,
       "instruction_match_pct": 76.7677,
       "reccmp_match_pct": 80,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045A960",
@@ -6163,7 +6163,7 @@
       "raw_match_pct": 88.8889,
       "instruction_match_pct": 88,
       "reccmp_match_pct": 88,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045AD70",
@@ -6175,7 +6175,7 @@
       "raw_match_pct": 37.6712,
       "instruction_match_pct": 76.7857,
       "reccmp_match_pct": 78.5714,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045AE00",
@@ -6235,7 +6235,7 @@
       "raw_match_pct": 8.6614,
       "instruction_match_pct": 40.8163,
       "reccmp_match_pct": 31.4607,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045B1B0",
@@ -6487,7 +6487,7 @@
       "raw_match_pct": 17.3333,
       "instruction_match_pct": 75.6,
       "reccmp_match_pct": 78.1563,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045BEA0",
@@ -6511,7 +6511,7 @@
       "raw_match_pct": 76.4192,
       "instruction_match_pct": 91.7808,
       "reccmp_match_pct": 98.6301,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045C280",
@@ -6619,7 +6619,7 @@
       "raw_match_pct": 72.067,
       "instruction_match_pct": 66.1538,
       "reccmp_match_pct": 66.1538,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045C920",
@@ -6847,7 +6847,7 @@
       "raw_match_pct": 9.0305,
       "instruction_match_pct": 45.7338,
       "reccmp_match_pct": 41.3709,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045E0E0",
@@ -6871,7 +6871,7 @@
       "raw_match_pct": 98.1132,
       "instruction_match_pct": 95,
       "reccmp_match_pct": 90,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045E740",
@@ -6895,7 +6895,7 @@
       "raw_match_pct": 18.662,
       "instruction_match_pct": 76.1905,
       "reccmp_match_pct": 77.3006,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045E9B0",
@@ -6919,7 +6919,7 @@
       "raw_match_pct": 10.1754,
       "instruction_match_pct": 61.9048,
       "reccmp_match_pct": 55.7576,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045EC70",
@@ -6931,7 +6931,7 @@
       "raw_match_pct": 4.2403,
       "instruction_match_pct": 30.3534,
       "reccmp_match_pct": 30,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045EFD0",
@@ -6943,7 +6943,7 @@
       "raw_match_pct": 33.1967,
       "instruction_match_pct": 82.716,
       "reccmp_match_pct": 65.4321,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045F0D0",
@@ -6955,7 +6955,7 @@
       "raw_match_pct": 43.2,
       "instruction_match_pct": 69.7674,
       "reccmp_match_pct": 88.3721,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045F150",
@@ -7159,7 +7159,7 @@
       "raw_match_pct": 16.3347,
       "instruction_match_pct": 74.2515,
       "reccmp_match_pct": 76.6467,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045F9E0",
@@ -7207,7 +7207,7 @@
       "raw_match_pct": 73.9837,
       "instruction_match_pct": 92.6471,
       "reccmp_match_pct": 82.3529,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x0045FB80",
@@ -7303,7 +7303,7 @@
       "raw_match_pct": 6.25,
       "instruction_match_pct": 36.1011,
       "reccmp_match_pct": 51.7442,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460130",
@@ -7339,7 +7339,7 @@
       "raw_match_pct": 9.0692,
       "instruction_match_pct": 84.6715,
       "reccmp_match_pct": 80.6084,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460430",
@@ -7387,7 +7387,7 @@
       "raw_match_pct": 48.6111,
       "instruction_match_pct": 50.7463,
       "reccmp_match_pct": 52.3077,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460600",
@@ -7399,7 +7399,7 @@
       "raw_match_pct": 84.9699,
       "instruction_match_pct": 81.0345,
       "reccmp_match_pct": 83.908,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460800",
@@ -7411,7 +7411,7 @@
       "raw_match_pct": 3.8462,
       "instruction_match_pct": 65.6716,
       "reccmp_match_pct": 70.9677,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460850",
@@ -7495,7 +7495,7 @@
       "raw_match_pct": 60.5828,
       "instruction_match_pct": 82.0937,
       "reccmp_match_pct": 80.9917,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460C20",
@@ -7519,7 +7519,7 @@
       "raw_match_pct": 58.4615,
       "instruction_match_pct": 91.6667,
       "reccmp_match_pct": 95.8333,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460D10",
@@ -7531,7 +7531,7 @@
       "raw_match_pct": 83.1169,
       "instruction_match_pct": 81.1594,
       "reccmp_match_pct": 81.1594,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460DB0",
@@ -7567,7 +7567,7 @@
       "raw_match_pct": 82.0513,
       "instruction_match_pct": 96.0784,
       "reccmp_match_pct": 100,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00460EA0",
@@ -7603,7 +7603,7 @@
       "raw_match_pct": 60.5556,
       "instruction_match_pct": 89.8305,
       "reccmp_match_pct": 84.1808,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004612E0",
@@ -7639,7 +7639,7 @@
       "raw_match_pct": 9.7902,
       "instruction_match_pct": 40,
       "reccmp_match_pct": 27.2727,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004613D0",
@@ -7675,7 +7675,7 @@
       "raw_match_pct": 5.5851,
       "instruction_match_pct": 36.8201,
       "reccmp_match_pct": 39.1111,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004615E0",
@@ -7735,7 +7735,7 @@
       "raw_match_pct": 9.0141,
       "instruction_match_pct": 69.1983,
       "reccmp_match_pct": 70.0422,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004617C0",
@@ -7759,7 +7759,7 @@
       "raw_match_pct": 13.5531,
       "instruction_match_pct": 60.7143,
       "reccmp_match_pct": 51.7986,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00461910",
@@ -7783,7 +7783,7 @@
       "raw_match_pct": 77.551,
       "instruction_match_pct": 92.6829,
       "reccmp_match_pct": 92.6829,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004619A0",
@@ -7807,7 +7807,7 @@
       "raw_match_pct": 20.0477,
       "instruction_match_pct": 55.8442,
       "reccmp_match_pct": 81.1688,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00461B90",
@@ -7867,7 +7867,7 @@
       "raw_match_pct": 16.3522,
       "instruction_match_pct": 64.2202,
       "reccmp_match_pct": 65.1376,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00461FD0",
@@ -7915,7 +7915,7 @@
       "raw_match_pct": 64.3725,
       "instruction_match_pct": 95.3846,
       "reccmp_match_pct": 98.4615,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00462670",
@@ -7999,7 +7999,7 @@
       "raw_match_pct": 19.2067,
       "instruction_match_pct": 88.6792,
       "reccmp_match_pct": 80.3797,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004636B0",
@@ -8119,7 +8119,7 @@
       "raw_match_pct": 9.1286,
       "instruction_match_pct": 47.0588,
       "reccmp_match_pct": 46.9274,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00463A80",
@@ -8131,7 +8131,7 @@
       "raw_match_pct": 88.6076,
       "instruction_match_pct": 78.7879,
       "reccmp_match_pct": 78.7879,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00463AD0",
@@ -8143,7 +8143,7 @@
       "raw_match_pct": 4.1667,
       "instruction_match_pct": 45.283,
       "reccmp_match_pct": 43.5644,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00463B50",
@@ -8203,7 +8203,7 @@
       "raw_match_pct": 27.044,
       "instruction_match_pct": 48.5437,
       "reccmp_match_pct": 48.5437,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00463D90",
@@ -8251,7 +8251,7 @@
       "raw_match_pct": 7.5301,
       "instruction_match_pct": 21.1321,
       "reccmp_match_pct": 19.305,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00465120",
@@ -8263,7 +8263,7 @@
       "raw_match_pct": 70.9677,
       "instruction_match_pct": 57.1429,
       "reccmp_match_pct": 53.5714,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00465160",
@@ -8275,7 +8275,7 @@
       "raw_match_pct": 74.3802,
       "instruction_match_pct": 89.1304,
       "reccmp_match_pct": 86.9565,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004651E0",
@@ -8527,7 +8527,7 @@
       "raw_match_pct": 69.3182,
       "instruction_match_pct": 69.2308,
       "reccmp_match_pct": 69.2308,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00466160",
@@ -8659,7 +8659,7 @@
       "raw_match_pct": 22.2078,
       "instruction_match_pct": 72.5304,
       "reccmp_match_pct": 72.2826,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x004682A0",

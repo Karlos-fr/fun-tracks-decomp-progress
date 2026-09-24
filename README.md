@@ -12,3 +12,10 @@ The map supports two levels:
 - **All functions** — every tracked function independently, including functions not yet assigned to an original compilation unit.
 
 Rectangle area is proportional to function size. Colors represent reconstruction progress.
+
+
+## Deployment
+
+GitHub Pages is published automatically from the `main/docs` branch source whenever the public repository receives a push.
+
+The progress JSON is generated from the private project using a strict public allow-list. Only public progress metadata is copied to `docs/data/progress.json`; private source paths, internal evidence, notes, and dependency data are not published.
