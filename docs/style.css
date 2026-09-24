@@ -159,7 +159,7 @@ button:hover,button:focus-visible{filter:brightness(1.18);outline:2px solid var(
   margin-top:9px;height:9px;border-radius:99px;background:#050505;border:1px solid #5f6467;overflow:hidden
 }
 .tooltip-meter i{display:block;height:100%;background:linear-gradient(90deg,#1a92d0,#39c7f7);box-shadow:0 0 9px #24b7ef}
-@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.tooltip-hint{margin-top:9px;padding-top:7px;border-top:1px solid #4f5558;color:var(--yellow);font:900 9px/1 "Arial Black",Impact,sans-serif;letter-spacing:.08em;text-align:center}\n@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
 .legend{
   display:flex;flex-wrap:wrap;gap:9px 14px;padding:12px 5px 9px;
   font-size:9px;font-weight:900;color:#b4b8ba
