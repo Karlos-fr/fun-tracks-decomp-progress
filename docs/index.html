@@ -6,13 +6,16 @@
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Interactive progress map for the Fun Tracks / Ignition decompilation project.">
   <title>Fun Tracks / Ignition — Decomp Progress</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main class="shell">
     <header class="hero">
       <div class="title-block">
-        <div class="race-badge">FT</div>
+        <div class="race-badge" aria-hidden="true">
+          <span class="badge-grid"><i></i><i></i><i></i><i></i></span>
+          <span class="badge-slash"></span>
+        </div>
         <div>
           <p class="eyebrow">FUN TRACKS / IGNITION · DECOMPILATION</p>
           <h1>Progress garage</h1>
@@ -25,9 +28,10 @@
     <section class="dash" id="stats" aria-label="Progress summary"></section>
 
     <section class="control-strip">
-      <div class="mode-switch" role="group" aria-label="Map level">
+      <div class="mode-switch" role="group" aria-label="Map mode">
         <button type="button" data-view="functions" class="active">ALL FUNCTIONS</button>
         <button type="button" data-view="units">PROBABLE UNITS</button>
+        <button type="button" data-view="memory">MEMORY MAP</button>
       </div>
       <div class="crumb" id="path">FUN_WIN.EXE / ALL FUNCTIONS</div>
       <button type="button" id="back" class="back" hidden>← BACK</button>
@@ -35,12 +39,16 @@
 
     <section class="race-panel">
       <div class="race-panel-top">
-        <span>FUNCTION MAP</span>
+        <span id="map-title">FUNCTION MAP</span>
         <span id="hover-readout">MOVE OVER A BLOCK</span>
       </div>
       <div class="map-stage">
-        <canvas id="treemap" aria-label="Interactive decompilation treemap"></canvas>
+        <canvas id="treemap" aria-label="Interactive decompilation progress map"></canvas>
         <div id="tooltip" class="tooltip" hidden></div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-label"><span>CODE RADAR</span><span id="radar-range">0x00401000 → 0x00469230</span></div>
+        <canvas id="memory-radar" aria-label="Address-ordered overview of the function corpus"></canvas>
       </div>
     </section>
 
@@ -50,20 +58,19 @@
       <span><i class="swatch source"></i>C RECONSTRUCTED</span>
       <span><i class="swatch codegen_exact"></i>CODEGEN EXACT</span>
       <span><i class="swatch binary_exact"></i>BINARY EXACT</span>
+      <span class="legend-selected"><i></i>SELECTED</span>
     </section>
 
     <section class="inspector" id="detail" aria-live="polite">
-      <div class="inspector-number">01</div>
+      <div class="inspector-number">GO</div>
       <div>
         <h2>Pick a function</h2>
-        <p>Hover for instant data. Click to keep the details here.</p>
+        <p>Hover for instant telemetry. Click to pin a function. On touch: tap once to inspect, tap a unit twice to enter it.</p>
       </div>
     </section>
 
-    <footer>
-      PUBLIC PROGRESS METADATA ONLY · NO PRIVATE SOURCE CODE OR INTERNAL EVIDENCE
-    </footer>
+    <footer>PUBLIC PROGRESS METADATA ONLY · NO PRIVATE SOURCE CODE OR INTERNAL EVIDENCE</footer>
   </main>
-  <script src="app.js?v=3" defer></script>
+  <script src="app.js?v=4" defer></script>
 </body>
 </html>
