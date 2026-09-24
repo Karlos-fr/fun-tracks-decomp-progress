@@ -1,5 +1,5 @@
 @property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}
-@property --needle{syntax:"<angle>";inherits:false;initial-value:-135deg}
+@property --needle{syntax:"<angle>";inherits:true;initial-value:-135deg}
 :root{
   color-scheme:dark;
   --asphalt:#151515;--asphalt2:#0f0f10;--panel:#202124;--panel2:#2a2b2f;
@@ -40,7 +40,7 @@ h1{margin:0;font:900 clamp(30px,5vw,54px)/.93 "Arial Black",Impact,sans-serif;te
   filter:drop-shadow(0 2px 1px #000);transition:--angle 1.15s cubic-bezier(.18,.82,.2,1),--needle 1.15s cubic-bezier(.18,.82,.2,1)
 }
 .gauge:before{content:"";position:absolute;inset:7px;border-radius:50%;background:radial-gradient(circle at 45% 38%,#24272a,#070808 72%);border:2px solid #757b7f;box-shadow:inset 0 0 10px #000}
-.gauge:after{content:"";position:absolute;left:34px;top:10px;width:3px;height:26px;background:var(--red);transform-origin:50% 25px;transform:rotate(var(--needle));border-radius:3px;box-shadow:1px 1px 0 #000;transition:transform 1.15s cubic-bezier(.18,.82,.2,1)}
+.gauge:after{content:"";position:absolute;left:34px;top:10px;width:3px;height:26px;background:var(--red);transform-origin:50% 25px;transform:rotate(var(--needle));border-radius:3px;box-shadow:1px 1px 0 #000}
 .gauge-readout{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;z-index:2;font:900 11px/1 "Arial Black",Impact,sans-serif;color:#fff;text-shadow:1px 1px #000}
 .gauge-copy strong{display:block;color:var(--yellow);font:900 20px/1 "Arial Black",Impact,sans-serif;text-shadow:2px 2px 0 #000}
 .gauge-copy span{display:block;margin-top:5px;color:#fff;font-size:9px;font-weight:900;letter-spacing:.08em}.gauge-copy small{display:block;margin-top:3px;color:#838a8e;font-size:8px;font-weight:700}
