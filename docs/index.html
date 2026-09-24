@@ -5,57 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Interactive progress map for the Fun Tracks / Ignition decompilation project.">
-  <title>Fun Tracks decompilation progress</title>
+  <title>Fun Tracks / Ignition — Decomp Progress</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="shell">
     <header class="hero">
-      <div>
-        <p class="eyebrow">FUN TRACKS / IGNITION</p>
-        <h1>Decompilation progress</h1>
-        <p class="subtitle">Public interactive map of reconstruction and binary-matching progress.</p>
+      <div class="title-block">
+        <div class="race-badge">FT</div>
+        <div>
+          <p class="eyebrow">FUN TRACKS / IGNITION · DECOMPILATION</p>
+          <h1>Progress garage</h1>
+          <p class="subtitle">Every block is a function. Bigger block = more code.</p>
+        </div>
       </div>
-      <a class="repo-link" href="https://github.com/Karlos-fr/fun-tracks-decomp-progress">GitHub</a>
+      <a class="repo-link" href="https://github.com/Karlos-fr/fun-tracks-decomp-progress">GITHUB ↗</a>
     </header>
 
-    <section class="stats" id="stats" aria-label="Progress summary"></section>
+    <section class="dash" id="stats" aria-label="Progress summary"></section>
 
-    <section class="toolbar" aria-label="Map controls">
-      <div class="segmented" role="group" aria-label="Map level">
-        <button type="button" data-view="units">Probable units</button>
-        <button type="button" data-view="functions" class="active">All functions</button>
+    <section class="control-strip">
+      <div class="mode-switch" role="group" aria-label="Map level">
+        <button type="button" data-view="functions" class="active">ALL FUNCTIONS</button>
+        <button type="button" data-view="units">PROBABLE UNITS</button>
       </div>
-      <label class="search-wrap">
-        <span class="sr-only">Filter functions</span>
-        <input id="filter" type="search" placeholder="Filter: SendDirectPlay, class:GAME, unit:none, >1kb, <100%">
-      </label>
-      <button type="button" id="back" class="secondary" hidden>Back</button>
+      <div class="crumb" id="path">FUN_WIN.EXE / ALL FUNCTIONS</div>
+      <button type="button" id="back" class="back" hidden>← BACK</button>
     </section>
 
-    <div class="path" id="path">FUN_WIN.EXE › all functions</div>
-
-    <section class="map-card">
-      <canvas id="treemap" aria-label="Interactive decompilation treemap"></canvas>
-      <div id="tooltip" class="tooltip" hidden></div>
-      <div id="empty" class="empty" hidden>No functions match this filter.</div>
+    <section class="race-panel">
+      <div class="race-panel-top">
+        <span>FUNCTION MAP</span>
+        <span id="hover-readout">MOVE OVER A BLOCK</span>
+      </div>
+      <div class="map-stage">
+        <canvas id="treemap" aria-label="Interactive decompilation treemap"></canvas>
+        <div id="tooltip" class="tooltip" hidden></div>
+      </div>
     </section>
 
     <section class="legend" aria-label="Progress legend">
-      <span><i class="swatch unknown"></i>Unqualified</span>
-      <span><i class="swatch named"></i>Named</span>
-      <span><i class="swatch source"></i>C reconstructed</span>
-      <span><i class="swatch codegen_exact"></i>Codegen exact</span>
-      <span><i class="swatch binary_exact"></i>Binary exact</span>
+      <span><i class="swatch unknown"></i>UNQUALIFIED</span>
+      <span><i class="swatch named"></i>NAMED</span>
+      <span><i class="swatch source"></i>C RECONSTRUCTED</span>
+      <span><i class="swatch codegen_exact"></i>CODEGEN EXACT</span>
+      <span><i class="swatch binary_exact"></i>BINARY EXACT</span>
     </section>
 
-    <section class="detail" id="detail" aria-live="polite">
-      <h2>How to read the map</h2>
-      <p>Rectangle area is proportional to function size. Click a probable compilation unit to drill down to its functions, or switch to All functions to browse the complete corpus.</p>
+    <section class="inspector" id="detail" aria-live="polite">
+      <div class="inspector-number">01</div>
+      <div>
+        <h2>Pick a function</h2>
+        <p>Hover for instant data. Click to keep the details here.</p>
+      </div>
     </section>
 
     <footer>
-      Public progress metadata only. No source code, private source paths, dependency evidence or internal notes are published here.
+      PUBLIC PROGRESS METADATA ONLY · NO PRIVATE SOURCE CODE OR INTERNAL EVIDENCE
     </footer>
   </main>
   <script src="app.js" defer></script>
