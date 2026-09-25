@@ -8,8 +8,8 @@ This repository intentionally publishes only progress metadata and the interacti
 
 The map supports three views:
 
-- **All functions** — every tracked function independently, including functions not yet assigned to an original compilation unit.
-- **Probable units** — reviewed probable original C compilation units, with drill-down to functions.
+- **All functions** ? every tracked function independently, including functions not yet assigned to a current C compilation unit.
+- **Current C units** ? the active compiled C units, with drill-down to their functions.
 - **Memory map** — the same functions laid out in address order.
 
 The **Code Radar** is interactive: hovering tracks the corresponding function in real time and clicking pins that routine in the inspector. Rectangle area is proportional to function size. Colors represent reconstruction progress. The interface adapts to the viewport so the main dashboard remains a single-screen experience on normal desktop and mobile sizes.
