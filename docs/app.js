@@ -110,7 +110,7 @@ function transitionRects(now){
 function shade(hex,delta){const n=parseInt(hex.slice(1),16),r=Math.max(0,Math.min(255,(n>>16)+delta)),g=Math.max(0,Math.min(255,((n>>8)&255)+delta)),b=Math.max(0,Math.min(255,(n&255)+delta));return'#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('')}
 function fillFor(rect){const base=STATUS[rect.item.status]?.color||STATUS.unknown.color,g=ctx.createLinearGradient(rect.x,rect.y,rect.x,rect.y+rect.h);g.addColorStop(0,shade(base,22));g.addColorStop(.48,base);g.addColorStop(1,shade(base,-30));return g}
 function drawCornerBrackets(r,color){
-  const{x,y,w,h}=r,l=Math.min(10,w/4,h/4);if(l<3)return;ctx.strokeStyle=color;ctx.lineWidth=3;ctx.beginPath();
+  const{x,y,w,h}=r,l=Math.min(10,w/4,h/4);if(l<3)return;ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.beginPath();
   ctx.moveTo(x+2,y+l);ctx.lineTo(x+2,y+2);ctx.lineTo(x+l,y+2);ctx.moveTo(x+w-l,y+2);ctx.lineTo(x+w-2,y+2);ctx.lineTo(x+w-2,y+l);
   ctx.moveTo(x+2,y+h-l);ctx.lineTo(x+2,y+h-2);ctx.lineTo(x+l,y+h-2);ctx.moveTo(x+w-l,y+h-2);ctx.lineTo(x+w-2,y+h-2);ctx.lineTo(x+w-2,y+h-l);ctx.stroke();
 }
@@ -134,10 +134,10 @@ function draw(now){
   if(!state.data)return;resizeCanvas(canvas,ctx);const rects=transitionRects(now);ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);drawMemoryLaneLabels();
   const hasHover=!!state.hoveredKey,pulseAge=now-state.hoverStarted,pulse=pulseAge>=0&&pulseAge<320?1-pulseAge/320:0;
   for(const r of rects){const key=itemKey(r.item),hovered=key===state.hoveredKey,selected=key===state.selectedKey;ctx.save();if(hasHover&&!hovered&&!selected)ctx.globalAlpha=.30;else if(hasHover&&selected&&!hovered)ctx.globalAlpha=.82;
-    if(hovered){ctx.shadowColor='#fff7a3';ctx.shadowBlur=17+12*pulse}else if(selected){ctx.shadowColor='#e43b2e';ctx.shadowBlur=10}
-    const inset=hovered?2:1;ctx.fillStyle=fillFor(r);ctx.fillRect(r.x+inset,r.y+inset,Math.max(0,r.w-inset*2),Math.max(0,r.h-inset*2));
-    ctx.lineWidth=hovered?2+1.5*pulse:selected?1.5:.65;ctx.strokeStyle=hovered?'#fff7a3':selected?'#e43b2e':'rgba(0,0,0,.72)';ctx.strokeRect(r.x+1.5,r.y+1.5,Math.max(0,r.w-3),Math.max(0,r.h-3));
-    if(hovered&&r.w>10&&r.h>10){ctx.strokeStyle='rgba(255,213,28,.95)';ctx.lineWidth=.75;ctx.strokeRect(r.x+4.5,r.y+4.5,Math.max(0,r.w-9),Math.max(0,r.h-9))}if(selected)drawCornerBrackets(r,'#fff');ctx.restore();drawLabel(r)}
+    if(hovered){ctx.shadowColor='#fff7a3';ctx.shadowBlur=7+4*pulse}else if(selected){ctx.shadowColor='#e43b2e';ctx.shadowBlur=5}
+    ctx.fillStyle=fillFor(r);ctx.fillRect(r.x,r.y,Math.max(0,r.w),Math.max(0,r.h));
+    ctx.lineWidth=hovered?1.5+0.5*pulse:selected?1.25:.5;ctx.strokeStyle=hovered?'#fff7a3':selected?'#e43b2e':'rgba(0,0,0,.55)';ctx.strokeRect(r.x+.25,r.y+.25,Math.max(0,r.w-.5),Math.max(0,r.h-.5));
+    if(hovered&&r.w>10&&r.h>10){ctx.strokeStyle='rgba(255,213,28,.8)';ctx.lineWidth=.5;ctx.strokeRect(r.x+2.5,r.y+2.5,Math.max(0,r.w-5),Math.max(0,r.h-5))}if(selected)drawCornerBrackets(r,'#fff');ctx.restore();drawLabel(r)}
   drawRadar();back.hidden=!state.drill;path.textContent=state.drill?'FUN_WIN.EXE / PROBABLE ORIGINAL UNITS / '+state.drill:'FUN_WIN.EXE / '+(state.view==='units'?'PROBABLE ORIGINAL UNITS':state.view==='memory'?'MEMORY MAP':'ALL FUNCTIONS');mapTitle.textContent=state.view==='memory'?'ADDRESS MAP':'FUNCTION MAP';
   if(state.transition||pulse>0)schedule();
 }
