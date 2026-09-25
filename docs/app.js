@@ -41,8 +41,9 @@ function aggregate(items){
     const weighted=functions.reduce((s,f)=>s+(STATUS[f.status]?.score||0)*f.size,0)/Math.max(1,size);
     const status=Object.keys(STATUS)[Math.max(0,Math.min(4,Math.round(weighted)))];
     const confidence=functions.map(f=>f.unit_confidence).find(Boolean)||null;
-    return{kind:'group',name,size,functions,status,exactFunctionPct:groupStats.functionPct,exactBytePct:groupStats.bytePct,unit_confidence:confidence};
-  }).sort((a,b)=>b.size-a.size||a.name.localeCompare(b.name));
+    const basis=functions.map(f=>f.unit_basis).find(Boolean)||null;
+    return{kind:'group',name,size,functions,status,exactFunctionPct:groupStats.functionPct,exactBytePct:groupStats.bytePct,unit_confidence:confidence,unit_basis:basis};
+  }).sort((a,b)=>(b.unit_basis==='CURRENT_C')-(a.unit_basis==='CURRENT_C')||b.size-a.size||a.name.localeCompare(b.name));
 }
 function currentItems(){
   let fs=state.data.functions;
@@ -114,19 +115,6 @@ function drawCornerBrackets(r,color){
   ctx.moveTo(x+2,y+l);ctx.lineTo(x+2,y+2);ctx.lineTo(x+l,y+2);ctx.moveTo(x+w-l,y+2);ctx.lineTo(x+w-2,y+2);ctx.lineTo(x+w-2,y+l);
   ctx.moveTo(x+2,y+h-l);ctx.lineTo(x+2,y+h-2);ctx.lineTo(x+l,y+h-2);ctx.moveTo(x+w-l,y+h-2);ctx.lineTo(x+w-2,y+h-2);ctx.lineTo(x+w-2,y+h-l);ctx.stroke();
 }
-function drawLabel(r){
-  const{item,x,y,w,h}=r;
-  if(item.kind!=='group'||w<48||h<25)return;
-  ctx.save();
-  ctx.beginPath();ctx.rect(x+3,y+3,Math.max(0,w-6),Math.max(0,h-6));ctx.clip();
-  ctx.font='900 11px Arial, sans-serif';ctx.fillStyle='#fff';ctx.shadowColor='#000';ctx.shadowOffsetX=1;ctx.shadowOffsetY=1;
-  ctx.fillText(item.name,x+7,y+17,Math.max(0,w-14));
-  if(h>=43&&w>=78){
-    ctx.font='700 9px Arial, sans-serif';ctx.fillStyle='rgba(255,255,255,.80)';
-    ctx.fillText(item.functions.length+' FUNCTIONS · '+item.exactFunctionPct.toFixed(1)+'% EXACT',x+7,y+32,Math.max(0,w-14));
-  }
-  ctx.restore();
-}
 function drawMemoryLaneLabels(){
   if(state.view!=='memory'||state.drill)return;ctx.save();ctx.font='800 9px Arial, sans-serif';ctx.textBaseline='middle';for(const lane of state.memoryLanes){ctx.fillStyle='#777e82';ctx.fillText(lane.start,7,lane.y+lane.h/2-5);ctx.fillStyle='#42474a';ctx.fillText(lane.end,7,lane.y+lane.h/2+7)}ctx.restore();
 }
@@ -137,7 +125,7 @@ function draw(now){
     if(hovered){ctx.shadowColor='#fff7a3';ctx.shadowBlur=7+4*pulse}else if(selected){ctx.shadowColor='#e43b2e';ctx.shadowBlur=5}
     ctx.fillStyle=fillFor(r);ctx.fillRect(r.x,r.y,Math.max(0,r.w),Math.max(0,r.h));
     ctx.lineWidth=hovered?1.5+0.5*pulse:selected?1.25:.5;ctx.strokeStyle=hovered?'#fff7a3':selected?'#e43b2e':'rgba(0,0,0,.55)';ctx.strokeRect(r.x+.25,r.y+.25,Math.max(0,r.w-.5),Math.max(0,r.h-.5));
-    if(hovered&&r.w>10&&r.h>10){ctx.strokeStyle='rgba(255,213,28,.8)';ctx.lineWidth=.5;ctx.strokeRect(r.x+2.5,r.y+2.5,Math.max(0,r.w-5),Math.max(0,r.h-5))}if(selected)drawCornerBrackets(r,'#fff');ctx.restore();drawLabel(r)}
+    if(hovered&&r.w>10&&r.h>10){ctx.strokeStyle='rgba(255,213,28,.8)';ctx.lineWidth=.5;ctx.strokeRect(r.x+2.5,r.y+2.5,Math.max(0,r.w-5),Math.max(0,r.h-5))}if(selected)drawCornerBrackets(r,'#fff');ctx.restore()}
   drawRadar();back.hidden=!state.drill;path.textContent=state.drill?'FUN_WIN.EXE / PROBABLE ORIGINAL UNITS / '+state.drill:'FUN_WIN.EXE / '+(state.view==='units'?'PROBABLE ORIGINAL UNITS':state.view==='memory'?'MEMORY MAP':'ALL FUNCTIONS');mapTitle.textContent=state.view==='memory'?'ADDRESS MAP':'FUNCTION MAP';
   if(state.transition||pulse>0)schedule();
 }
@@ -145,14 +133,14 @@ function schedule(){if(state.raf)return;state.raf=requestAnimationFrame(now=>{st
 function locate(e){const b=canvas.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;return(state.displayRects.length?state.displayRects:state.rects).find(r=>x>=r.x&&x<=r.x+r.w&&y>=r.y&&y<=r.y+r.h)||null}
 function sizeRank(i){return state.sizeRanks.get(i.address)||100}
 function tooltipHtml(i,touchHint=false){
-  if(i.kind==='group')return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.name)+'</div><div class="tooltip-row"><span>FUNCTIONS</span><b>'+i.functions.length+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+'</b></div><div class="tooltip-row"><span>EXACT FUNCTIONS</span><b>'+fmtPct(i.exactFunctionPct)+'</b></div><div class="tooltip-row"><span>EXACT BYTES</span><b>'+fmtPct(i.exactBytePct)+'</b></div><div class="tooltip-row"><span>CONFIDENCE</span><b>'+esc(i.unit_confidence||'—')+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,i.exactBytePct))+'%"></i></div>'+(touchHint?'<div class="tooltip-hint">TAP AGAIN TO OPEN</div>':'')+'</div>';
+  if(i.kind==='group')return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.name)+'</div><div class="tooltip-row"><span>BASIS</span><b>'+(i.unit_basis==='CURRENT_C'?'CURRENT C UNIT':i.unit_basis==='AUTHENTICATED_CRT'?'MSVC OBJECT':'PROBABLE UNIT')+'</b></div><div class="tooltip-row"><span>FUNCTIONS</span><b>'+i.functions.length+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+'</b></div><div class="tooltip-row"><span>EXACT FUNCTIONS</span><b>'+fmtPct(i.exactFunctionPct)+'</b></div><div class="tooltip-row"><span>EXACT BYTES</span><b>'+fmtPct(i.exactBytePct)+'</b></div><div class="tooltip-row"><span>ORIGINAL UNIT CONFIDENCE</span><b>'+esc(i.unit_confidence||'—')+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,i.exactBytePct))+'%"></i></div>'+(touchHint?'<div class="tooltip-hint">TAP AGAIN TO OPEN</div>':'')+'</div>';
   const pct=statusPct(i),rank=sizeRank(i);return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.symbol)+'</div><div class="tooltip-row"><span>ADDRESS</span><b>'+esc(i.address)+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+' · TOP '+rank.toFixed(rank<10?1:0)+'%</b></div><div class="tooltip-row"><span>STATUS</span><b>'+esc(STATUS[i.status]?.label||i.status)+'</b></div><div class="tooltip-row"><span>C RECONSTRUCTED</span><b>'+(cReconstructed(i)?'YES':'NO')+'</b></div><div class="tooltip-row"><span>INSTRUCTION MATCH</span><b>'+fmtPct(i.instruction_match_pct)+'</b></div><div class="tooltip-row"><span>LINKED MATCH</span><b>'+fmtPct(i.reccmp_match_pct)+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,pct))+'%"></i></div></div>';
 }
 function placeTooltip(e){const stage=canvas.parentElement.getBoundingClientRect(),box=tooltip.getBoundingClientRect();let left=e.clientX-stage.left+18,top=e.clientY-stage.top+18;if(left+box.width>stage.width-8)left=e.clientX-stage.left-box.width-18;if(top+box.height>stage.height-8)top=e.clientY-stage.top-box.height-18;tooltip.style.left=Math.max(8,left)+'px';tooltip.style.top=Math.max(8,top)+'px'}
 function showTooltip(r,e,touchHint=false){if(!r){tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK';return}tooltip.innerHTML=tooltipHtml(r.item,touchHint);tooltip.hidden=false;placeTooltip(e);const i=r.item;hoverReadout.textContent=i.kind==='group'?i.name+' · '+i.functions.length+' FUNCTIONS':i.address+' · '+i.symbol}
 function showDetail(i){
   state.selectedKey=itemKey(i);
-  if(i.kind==='group'){detail.innerHTML='<div class="inspector-number">'+String(Math.min(99,i.functions.length)).padStart(2,'0')+'</div><div><h2>'+esc(i.name)+'</h2><p>'+i.functions.length+' functions · '+fmtBytes(i.size)+' · '+fmtPct(i.exactBytePct)+' of bytes exact.</p><div class="detail-grid"><div><span>EXACT FUNCTIONS</span><strong>'+fmtPct(i.exactFunctionPct)+'</strong></div><div><span>EXACT BYTES</span><strong>'+fmtPct(i.exactBytePct)+'</strong></div><div><span>CONFIDENCE</span><strong>'+esc(i.unit_confidence||'—')+'</strong></div><div><span>SIZE</span><strong>'+fmtBytes(i.size)+'</strong></div></div></div>';return}
+  if(i.kind==='group'){detail.innerHTML='<div class="inspector-number">'+String(Math.min(99,i.functions.length)).padStart(2,'0')+'</div><div><h2>'+esc(i.name)+'</h2><p>'+i.functions.length+' functions · '+fmtBytes(i.size)+' · '+fmtPct(i.exactBytePct)+' of bytes exact.</p><div class="detail-grid"><div><span>EXACT FUNCTIONS</span><strong>'+fmtPct(i.exactFunctionPct)+'</strong></div><div><span>EXACT BYTES</span><strong>'+fmtPct(i.exactBytePct)+'</strong></div><div><span>ORIGINAL UNIT CONFIDENCE</span><strong>'+esc(i.unit_confidence||'—')+'</strong></div><div><span>SIZE</span><strong>'+fmtBytes(i.size)+'</strong></div></div></div>';return}
   const pct=statusPct(i),rank=sizeRank(i);detail.innerHTML='<div class="inspector-number">'+Math.round(pct)+'</div><div><h2>'+esc(i.symbol)+'</h2><p>'+esc(i.address)+' · '+fmtBytes(i.size)+' · '+esc(STATUS[i.status]?.label||i.status)+'</p><div class="detail-grid"><div><span>PROBABLE ORIGINAL UNIT</span><strong>'+esc(i.compilation_unit||'UNASSIGNED')+'</strong></div><div><span>CLASS</span><strong>'+esc(i.function_class||'—')+'</strong></div><div><span>C RECONSTRUCTED</span><strong>'+(cReconstructed(i)?'YES':'NO')+'</strong></div><div><span>SIZE RANK</span><strong>TOP '+rank.toFixed(rank<10?1:0)+'%</strong></div><div><span>INSTRUCTION MATCH</span><strong>'+fmtPct(i.instruction_match_pct)+'</strong></div><div><span>LINKED MATCH</span><strong>'+fmtPct(i.reccmp_match_pct)+'</strong></div><div><span>RAW MATCH</span><strong>'+fmtPct(i.raw_match_pct)+'</strong></div><div><span>STATUS</span><strong>'+esc(STATUS[i.status]?.label||i.status)+'</strong></div></div></div>';
 }
 function clearTouchFocus(){state.touchArmed=null;state.hoveredKey=null;tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK'}
@@ -242,7 +230,7 @@ back.addEventListener('click',()=>{state.drill=null;state.selectedKey=null;clear
 buttons.forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;state.drill=null;state.selectedKey=null;clearTouchFocus();buttons.forEach(x=>x.classList.toggle('active',x===b));startLayoutTransition()}));
 addEventListener('resize',()=>{state.transition=null;state.rects=targetLayout();state.displayRects=state.rects;schedule()});
 
-fetch('data/progress.json').then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(data=>{
+fetch('data/progress.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(data=>{
   state.data=data;
   const sizes=[...data.functions].sort((a,b)=>b.size-a.size);sizes.forEach((f,index)=>state.sizeRanks.set(f.address,100*(index+1)/sizes.length));
   const first=data.functions[0],last=data.functions[data.functions.length-1];if(first&&last)radarRange.textContent=first.address+' → '+last.address;
@@ -251,7 +239,7 @@ fetch('data/progress.json').then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);
     '<div class="gauge-card"><div class="gauge" data-target-angle="'+angle2+'" data-target-pct="'+bytePct+'" style="--angle:0deg;--needle:-135deg"><div class="gauge-readout">0.0%</div></div><div class="gauge-copy"><strong>'+fmtBytes(exactBytes)+'</strong><span>EXACT CODE</span><small>of '+fmtBytes(data.summary.bytes)+'</small></div></div>'+
     '<div class="stat"><strong>'+fmtBytes(data.summary.bytes)+'</strong><span>TRACKED CODE</span><small>'+data.summary.functions.toLocaleString('en-US')+' functions</small></div>'+
     '<div class="stat"><strong>'+(c.codegen_exact||0)+'</strong><span>CODEGEN EXACT</span><small>not yet binary exact</small></div>'+
-    '<div class="stat"><strong>'+(data.summary.explicit_compilation_units||0)+'</strong><span>PROBABLE ORIGINAL UNITS</span><small>evidence-based groups</small></div>';
+    '<div class="stat"><strong>'+(data.summary.active_compilation_units||0)+'</strong><span>C UNITS IN PROGRESS</span><small>of '+(data.summary.explicit_compilation_units||0)+' probable groups</small></div>';
   const gaugeStart=performance.now();
   const gaugeDuration=reducedMotion?0:1150;
   const animateGauges=now=>{
