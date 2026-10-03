@@ -7,20 +7,20 @@
     "bytes": 441599,
     "status_counts": {
       "unknown": 0,
-      "named": 56,
-      "source": 236,
-      "codegen_exact": 39,
+      "named": 21,
+      "source": 234,
+      "codegen_exact": 76,
       "binary_exact": 681
     },
     "status_bytes": {
       "unknown": 0,
-      "named": 139242,
-      "source": 197961,
-      "codegen_exact": 12961,
+      "named": 39091,
+      "source": 285918,
+      "codegen_exact": 25155,
       "binary_exact": 91435
     },
-    "explicit_compilation_units": 32,
-    "active_compilation_units": 31
+    "explicit_compilation_units": 49,
+    "active_compilation_units": 48
   },
   "functions": [
     {
@@ -174,8 +174,8 @@
       "compilation_unit": "Current C / level_mesh_processing.c / 0x00401A50-0x00402260",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 69.0454,
-      "instruction_match_pct": 80.8176,
+      "raw_match_pct": 84.6154,
+      "instruction_match_pct": 79.8742,
       "reccmp_match_pct": 0.0,
       "status": "source"
     },
@@ -213,10 +213,10 @@
       "compilation_unit": "Current C / level_mesh_processing.c / 0x00401A50-0x00402260",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 33.0882,
-      "instruction_match_pct": 74.1379,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 77.5862,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004020E0",
@@ -226,10 +226,10 @@
       "compilation_unit": "Current C / level_mesh_processing.c / 0x00401A50-0x00402260",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 33.5821,
-      "instruction_match_pct": 75.4386,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 75.4386,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00402170",
@@ -291,10 +291,10 @@
       "compilation_unit": "Current C / cursor_segment_traversal.c / 0x004022B0-0x004022B0",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 6.25,
-      "instruction_match_pct": 44.186,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 36.1446,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00402320",
@@ -304,10 +304,10 @@
       "compilation_unit": "Current C / palette_grid_builders.c / 0x00402320-0x00402450",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 29.1667,
-      "instruction_match_pct": 80.3738,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 80.3738,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004023B0",
@@ -317,10 +317,10 @@
       "compilation_unit": "Current C / palette_grid_builders.c / 0x00402320-0x00402450",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 89.6774,
-      "instruction_match_pct": 98.2456,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 81.7391,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00402450",
@@ -395,10 +395,10 @@
       "compilation_unit": "Current C / palette_color_math.c / 0x00402690-0x00402850",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 68.4211,
-      "instruction_match_pct": 77.4194,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 71.1864,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004028A0",
@@ -460,10 +460,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 39.1304,
-      "instruction_match_pct": 99.5984,
+      "raw_match_pct": 69.1511,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 0.0,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00402B90",
@@ -483,13 +483,13 @@
       "size": 3330,
       "symbol": "RunFrontEndFrame",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 20.3303,
-      "instruction_match_pct": 68.1873,
+      "compilation_unit": "Current C / frontend_sequence_frame.c / 0x00402BB0-0x00402BB0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004038C0",
@@ -522,9 +522,9 @@
       "size": 165,
       "symbol": "ConfigureCurrentDisplayMode",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 62.4242,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -535,9 +535,9 @@
       "size": 382,
       "symbol": "InitializeMenuSoundAndWarnIfUnavailable",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 73.2984,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 94.2408,
@@ -548,9 +548,9 @@
       "size": 96,
       "symbol": "StartNonPositionalSound",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 65.625,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -561,9 +561,9 @@
       "size": 68,
       "symbol": "PresentSoftwareFramebuffer",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 63.2353,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -574,22 +574,22 @@
       "size": 117,
       "symbol": "UpdateAndReadClampedApplicationTimeDelta",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 87.1795,
-      "instruction_match_pct": 100.0,
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 5.9829,
+      "instruction_match_pct": 70.3704,
       "reccmp_match_pct": 57.6923,
-      "status": "codegen_exact"
+      "status": "source"
     },
     {
       "address": "0x00403E40",
       "size": 15,
       "symbol": "ProcessSoundQueueIfFlag4BE874Set",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 60.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -600,9 +600,9 @@
       "size": 1170,
       "symbol": "InitializeMenuResourcesAndState",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 7.4194,
       "instruction_match_pct": 29.8658,
       "reccmp_match_pct": null,
@@ -613,9 +613,9 @@
       "size": 111,
       "symbol": "StoreTimedTextMessage",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -626,22 +626,22 @@
       "size": 99,
       "symbol": "DrawTimedTextMessages",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 67.6768,
-      "instruction_match_pct": 71.7949,
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 71.7949,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004043D0",
       "size": 440,
       "symbol": "ApplyAnimatedMenuFramebufferRipple",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / display_menu_runtime_unit.c / 0x00403AE0-0x004043D0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 93.1818,
       "instruction_match_pct": 84.6715,
       "reccmp_match_pct": null,
@@ -863,10 +863,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 33.3333,
-      "instruction_match_pct": 83.6364,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 61.3861,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0040C6E0",
@@ -886,9 +886,9 @@
       "size": 876,
       "symbol": "LoadMenuCarSceneResources",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / menu_canada_resources_unit.c / 0x0040C930-0x0040CD40",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 71.3477,
       "instruction_match_pct": 84.6774,
       "reccmp_match_pct": null,
@@ -899,9 +899,9 @@
       "size": 145,
       "symbol": "LoadCanadaTextureFilesIntoPageTable",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / menu_canada_resources_unit.c / 0x0040C930-0x0040CD40",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 85.5172,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -912,9 +912,9 @@
       "size": 133,
       "symbol": "LoadCanadaShadowDataAndBuildShadeTable",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / menu_canada_resources_unit.c / 0x0040C930-0x0040CD40",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 86.4662,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -1032,8 +1032,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 94.1643,
-      "instruction_match_pct": 93.2161,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
       "status": "binary_exact"
     },
@@ -1094,13 +1094,13 @@
       "size": 177,
       "symbol": "TransformCarPlanarPoints",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 39.548,
-      "instruction_match_pct": 72.5806,
+      "compilation_unit": "Current C / car_planar_transform.c / 0x0040FE20-0x0040FE20",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 56.4516,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0040FEE0",
@@ -1149,8 +1149,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 71.4286,
-      "instruction_match_pct": 77.7778,
+      "raw_match_pct": 78.5714,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
       "status": "binary_exact"
     },
@@ -1162,8 +1162,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 68.0,
-      "instruction_match_pct": 75.0,
+      "raw_match_pct": 76.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
       "status": "binary_exact"
     },
@@ -1253,8 +1253,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 5.0269,
-      "instruction_match_pct": 7.0175,
+      "raw_match_pct": 81.295,
+      "instruction_match_pct": 90.0,
       "reccmp_match_pct": null,
       "status": "source"
     },
@@ -1523,13 +1523,13 @@
       "size": 131,
       "symbol": "InitializeCdpDecoderFromFileData",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 86.2595,
-      "instruction_match_pct": 60.0,
+      "compilation_unit": "Current C / cdp_parser.c / 0x004124C0-0x004124C0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 60.0,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00412550",
@@ -1565,10 +1565,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 76.1589,
-      "instruction_match_pct": 72.043,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004126E0",
@@ -1617,8 +1617,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 3.4951,
-      "instruction_match_pct": 24.2991,
+      "raw_match_pct": 3.1447,
+      "instruction_match_pct": 25.4545,
       "reccmp_match_pct": 14.6032,
       "status": "source"
     },
@@ -1653,9 +1653,9 @@
       "size": 71,
       "symbol": "AverageIndexedTripletValueWithBias",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / indexed_triplet_average.c / 0x004132C0-0x004132C0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 49.2958,
       "instruction_match_pct": 46.6667,
       "reccmp_match_pct": 17.7778,
@@ -1669,10 +1669,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 6.9498,
-      "instruction_match_pct": 19.4805,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 4.8387,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00413420",
@@ -1825,10 +1825,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 73.2394,
-      "instruction_match_pct": 96.2963,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 96.2963,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00416190",
@@ -1942,10 +1942,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 15.0,
-      "instruction_match_pct": 41.3793,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 51.8519,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00418490",
@@ -2059,8 +2059,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 63.6029,
-      "instruction_match_pct": 92.4242,
+      "raw_match_pct": 96.5993,
+      "instruction_match_pct": 98.4848,
       "reccmp_match_pct": null,
       "status": "source"
     },
@@ -2160,13 +2160,13 @@
       "size": 150,
       "symbol": "PrepareWorldObjectComponentsByOffset41B350",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 19.2308,
-      "instruction_match_pct": 46.4646,
+      "compilation_unit": "Current C / world_object_components.c / 0x0041B350-0x0041B350",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 40.8602,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0041B3F0",
@@ -2199,13 +2199,13 @@
       "size": 167,
       "symbol": "InitializeDynamicWorldObjectPool",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 32.7684,
-      "instruction_match_pct": 83.0189,
+      "compilation_unit": "Current C / dynamic_world_object_pool.c / 0x0041CD60-0x0041CD60",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 91.0891,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0041CE10",
@@ -2462,10 +2462,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 10.2114,
+      "instruction_match_pct": 23.5469,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00421BC0",
@@ -2475,10 +2475,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 2.7746,
+      "instruction_match_pct": 22.5166,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004222B0",
@@ -2501,8 +2501,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 80.8511,
+      "raw_match_pct": 59.3023,
+      "instruction_match_pct": 87.234,
       "reccmp_match_pct": null,
       "status": "source"
     },
@@ -2514,10 +2514,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 5.5402,
+      "instruction_match_pct": 22.5479,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00423620",
@@ -2527,10 +2527,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 6.3811,
+      "instruction_match_pct": 27.3723,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00423AA0",
@@ -2605,10 +2605,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 9.4057,
+      "instruction_match_pct": 66.7744,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004269A0",
@@ -2631,10 +2631,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 2.0022,
+      "instruction_match_pct": 8.2969,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00427D70",
@@ -2657,10 +2657,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 1.5378,
+      "instruction_match_pct": 4.4118,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00428730",
@@ -2680,13 +2680,13 @@
       "size": 1284,
       "symbol": "CollectNearbyTrackCollisionGeometry",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "compilation_unit": "Current C / collect_nearby_track_collision_geometry.c / 0x00428B90-0x00428B90",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004290A0",
@@ -2722,10 +2722,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 7.2061,
+      "instruction_match_pct": 58.9147,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004295E0",
@@ -2745,13 +2745,13 @@
       "size": 34,
       "symbol": "GetFloatSign",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 55.8824,
-      "instruction_match_pct": 81.8182,
+      "compilation_unit": "Current C / sign_math.c / 0x00429A10-0x00446350",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 80.0,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00429A40",
@@ -2761,10 +2761,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
-      "reccmp_match_pct": null,
-      "status": "named"
+      "raw_match_pct": 1.4793,
+      "instruction_match_pct": 8.9416,
+      "reccmp_match_pct": 0.0,
+      "status": "source"
     },
     {
       "address": "0x0042A8D0",
@@ -2800,10 +2800,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 9.733,
+      "instruction_match_pct": 24.2358,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0042B5D0",
@@ -2813,10 +2813,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 12.2208,
+      "instruction_match_pct": 38.1271,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0042BC20",
@@ -2839,10 +2839,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
-      "reccmp_match_pct": null,
-      "status": "named"
+      "raw_match_pct": 1.1919,
+      "instruction_match_pct": 5.6914,
+      "reccmp_match_pct": 0.0,
+      "status": "source"
     },
     {
       "address": "0x0042E2E0",
@@ -2904,10 +2904,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 3.2375,
+      "instruction_match_pct": 17.2078,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0042FC80",
@@ -2930,10 +2930,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
-      "reccmp_match_pct": null,
-      "status": "named"
+      "raw_match_pct": 76.2584,
+      "instruction_match_pct": 99.2933,
+      "reccmp_match_pct": 0.0,
+      "status": "source"
     },
     {
       "address": "0x004307B0",
@@ -2943,10 +2943,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 0.6243,
+      "instruction_match_pct": 6.9169,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00431D00",
@@ -2969,10 +2969,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 1.7766,
+      "instruction_match_pct": 15.4589,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00432BB0",
@@ -2995,10 +2995,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 4.5267,
+      "instruction_match_pct": 18.9944,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004333E0",
@@ -3008,10 +3008,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
-      "reccmp_match_pct": null,
-      "status": "named"
+      "raw_match_pct": 8.0032,
+      "instruction_match_pct": 46.1059,
+      "reccmp_match_pct": 0.0,
+      "status": "source"
     },
     {
       "address": "0x004338D0",
@@ -3021,10 +3021,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
-      "reccmp_match_pct": null,
-      "status": "named"
+      "raw_match_pct": 20.1265,
+      "instruction_match_pct": 46.0894,
+      "reccmp_match_pct": 0.0,
+      "status": "source"
     },
     {
       "address": "0x00433F90",
@@ -3099,10 +3099,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 65.4237,
-      "instruction_match_pct": 86.1607,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004356D0",
@@ -3112,8 +3112,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 6.7358,
-      "instruction_match_pct": 37.2093,
+      "raw_match_pct": 7.772,
+      "instruction_match_pct": 43.9394,
       "reccmp_match_pct": 37.037,
       "status": "source"
     },
@@ -3125,10 +3125,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 78.2334,
-      "instruction_match_pct": 95.5556,
+      "raw_match_pct": 82.9653,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 73.3333,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004358E0",
@@ -3151,10 +3151,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 2.3278,
+      "instruction_match_pct": 8.229,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00436990",
@@ -3164,10 +3164,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 2.8912,
+      "instruction_match_pct": 9.9317,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004380F0",
@@ -3268,10 +3268,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 3.4273,
+      "instruction_match_pct": 17.6678,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0043D520",
@@ -3294,10 +3294,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 3.3361,
+      "instruction_match_pct": 4.9242,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0043DFB0",
@@ -3424,10 +3424,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 3.7237,
+      "instruction_match_pct": 17.0275,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004408E0",
@@ -3450,10 +3450,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 5.0817,
+      "instruction_match_pct": 35.4204,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00440DB0",
@@ -3463,10 +3463,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 6.1662,
+      "instruction_match_pct": 33.3333,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004411E0",
@@ -3476,10 +3476,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 5.4217,
-      "instruction_match_pct": 25.641,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 21.875,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00441290",
@@ -3489,10 +3489,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 2.6316,
-      "instruction_match_pct": 28.9157,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 28.169,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00441330",
@@ -3541,10 +3541,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 6.8998,
+      "instruction_match_pct": 9.5101,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00442150",
@@ -3554,10 +3554,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 83.511,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00442790",
@@ -3567,10 +3567,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 3.712,
+      "instruction_match_pct": 16.9343,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00442E90",
@@ -3632,10 +3632,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 56.5704,
+      "instruction_match_pct": 96.3636,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x004449B0",
@@ -3785,9 +3785,9 @@
       "size": 76,
       "symbol": "GenerateUnitRandomFloat",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / sign_math.c / 0x00429A10-0x00446350",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 80.2632,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -3798,9 +3798,9 @@
       "size": 71,
       "symbol": "ClassifyDoubleSign",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / sign_math.c / 0x00429A10-0x00446350",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 83.0986,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -3811,9 +3811,9 @@
       "size": 30,
       "symbol": "GetIntegerSign",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / sign_math.c / 0x00429A10-0x00446350",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -3837,9 +3837,9 @@
       "size": 93,
       "symbol": "WrapAngleDegrees",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / angle_math.c / 0x00446400-0x004464C0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -3850,9 +3850,9 @@
       "size": 93,
       "symbol": "WrapAngleRadians",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / angle_math.c / 0x00446400-0x004464C0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -3863,9 +3863,9 @@
       "size": 113,
       "symbol": "WrapValueToPeriod",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / angle_math.c / 0x00446400-0x004464C0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -4009,8 +4009,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 11.0063,
-      "instruction_match_pct": 44.3439,
+      "raw_match_pct": 13.8365,
+      "instruction_match_pct": 68.1818,
       "reccmp_match_pct": 47.2222,
       "status": "source"
     },
@@ -4022,8 +4022,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 62.212,
-      "instruction_match_pct": 81.0127,
+      "raw_match_pct": 67.7419,
+      "instruction_match_pct": 86.0759,
       "reccmp_match_pct": 64.4295,
       "status": "source"
     },
@@ -4036,9 +4036,9 @@
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
       "raw_match_pct": 94.6429,
-      "instruction_match_pct": 95.122,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 50.6329,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004472F0",
@@ -4357,24 +4357,24 @@
       "size": 107,
       "symbol": "CollectAndClearRendererBucketPayloads",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 94.3925,
-      "instruction_match_pct": 95.122,
+      "compilation_unit": "Current C / renderer_bucket_flush.c / 0x0044B6A0-0x0044B6A0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 31.25,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0044B710",
       "size": 165,
       "symbol": "EmitTaggedRendererBucketPayload",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 10.2273,
-      "instruction_match_pct": 18.6916,
+      "compilation_unit": "Current C / renderer_tagged_bucket_payload.c / 0x0044B710-0x0044B710",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 92.7273,
+      "instruction_match_pct": 94.2308,
       "reccmp_match_pct": 20.5607,
       "status": "source"
     },
@@ -4386,8 +4386,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 6.4815,
-      "instruction_match_pct": 27.2727,
+      "raw_match_pct": 25.7143,
+      "instruction_match_pct": 41.8605,
       "reccmp_match_pct": 30.5344,
       "status": "source"
     },
@@ -4464,10 +4464,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 25.0424,
+      "instruction_match_pct": 59.3796,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0044CBD0",
@@ -4971,8 +4971,8 @@
       "compilation_unit": "Current C / lft_font_unit.c / 0x004562B0-0x00456790",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 8.8838,
-      "instruction_match_pct": 11.6667,
+      "raw_match_pct": 84.1492,
+      "instruction_match_pct": 91.7355,
       "reccmp_match_pct": 34.1667,
       "status": "source"
     },
@@ -5023,8 +5023,8 @@
       "compilation_unit": "Current C / lft_font_unit.c / 0x004562B0-0x00456790",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 3.7832,
-      "instruction_match_pct": 67.0017,
+      "raw_match_pct": 8.3845,
+      "instruction_match_pct": 64.6566,
       "reccmp_match_pct": 65.4991,
       "status": "source"
     },
@@ -5998,10 +5998,10 @@
       "compilation_unit": "Current C / cd_audio_unit.c / 0x00457C40-0x004582E0",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "raw_match_pct": 79.1667,
-      "instruction_match_pct": 80.9524,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 90.4762,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00458090",
@@ -6323,8 +6323,8 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 93.4579,
-      "instruction_match_pct": 97.7778,
+      "raw_match_pct": 75.7009,
+      "instruction_match_pct": 77.7778,
       "reccmp_match_pct": 91.1111,
       "status": "source"
     },
@@ -6350,9 +6350,9 @@
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
       "raw_match_pct": 91.3043,
-      "instruction_match_pct": 97.9167,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 95.8333,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00459600",
@@ -6466,10 +6466,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 30.9278,
-      "instruction_match_pct": 42.3077,
+      "raw_match_pct": 69.0722,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 48.0,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00459FB0",
@@ -7441,10 +7441,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 96.2264,
-      "instruction_match_pct": 90.0,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 90.0,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0045E740",
@@ -7493,10 +7493,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 10.1754,
-      "instruction_match_pct": 61.9048,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 55.7576,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0045EC70",
@@ -7558,10 +7558,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 7.5029,
+      "instruction_match_pct": 34.1085,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x0045F4C0",
@@ -7805,10 +7805,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 68.2927,
-      "instruction_match_pct": 91.1765,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 82.3529,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x0045FB80",
@@ -7997,13 +7997,13 @@
       "size": 72,
       "symbol": "DuplicateStringAllocation",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 48.6111,
-      "instruction_match_pct": 50.7463,
+      "compilation_unit": "Current C / string_memory.c / 0x004605B0-0x004605B0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 52.3077,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00460600",
@@ -8429,10 +8429,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 74.4681,
-      "instruction_match_pct": 85.0,
+      "raw_match_pct": 91.4894,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 92.6829,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004619A0",
@@ -8572,10 +8572,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 64.3725,
-      "instruction_match_pct": 98.4615,
+      "raw_match_pct": 65.1822,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 98.4615,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00462670",
@@ -8777,9 +8777,9 @@
       "size": 119,
       "symbol": "FindHashTableValue",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 100.0,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -8790,9 +8790,9 @@
       "size": 226,
       "symbol": "RemoveHashTableValueAndCompactCluster",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 9.1286,
       "instruction_match_pct": 47.0588,
       "reccmp_match_pct": 46.9274,
@@ -8803,9 +8803,9 @@
       "size": 79,
       "symbol": "InsertHashTableEntry",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 88.6076,
       "instruction_match_pct": 78.7879,
       "reccmp_match_pct": 78.7879,
@@ -8816,11 +8816,11 @@
       "size": 120,
       "symbol": "GrowHashTableAndReinsertEntries",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 4.1667,
-      "instruction_match_pct": 45.283,
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 30.0,
+      "instruction_match_pct": 56.0748,
       "reccmp_match_pct": 43.5644,
       "status": "source"
     },
@@ -8829,9 +8829,9 @@
       "size": 133,
       "symbol": "ShrinkHashTableAndReinsertEntries",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 93.985,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -8842,9 +8842,9 @@
       "size": 72,
       "symbol": "InitializeStateRecordWith128ByteBuffer",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / hash_table.c / 0x00463910-0x00463BE0",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 94.4444,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -8946,13 +8946,13 @@
       "size": 62,
       "symbol": "FillRgb24RectangleWith12",
       "function_class": "UNKNOWN",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 70.9677,
-      "instruction_match_pct": 57.1429,
+      "compilation_unit": "Current C / rgb24_rectangle_fill.c / 0x00465120-0x00465120",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 53.5714,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00465160",
@@ -8988,10 +8988,10 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "raw_match_pct": 93.121,
+      "instruction_match_pct": 99.5169,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00465A40",
@@ -9249,9 +9249,9 @@
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
       "raw_match_pct": 97.1698,
-      "instruction_match_pct": 97.619,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": 71.4286,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x004661D0",
@@ -9388,9 +9388,9 @@
       "size": 337,
       "symbol": "ParseL3dResourceFile",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / l3d_resource_parser.c / 0x004682A0-0x00468430",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 95.2522,
       "instruction_match_pct": 97.076,
       "reccmp_match_pct": null,
@@ -9401,9 +9401,9 @@
       "size": 48,
       "symbol": "ReleaseNamedRecordList",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
+      "compilation_unit": "Current C / l3d_resource_parser.c / 0x004682A0-0x00468430",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
       "raw_match_pct": 85.4167,
       "instruction_match_pct": 100.0,
       "reccmp_match_pct": 100.0,
@@ -9414,13 +9414,13 @@
       "size": 2125,
       "symbol": "ParseL3dResourceChunkStream",
       "function_class": "GAME",
-      "compilation_unit": "No current compilation unit",
-      "unit_confidence": null,
-      "unit_basis": "NO_CURRENT_C_UNIT",
-      "raw_match_pct": 0.0,
-      "instruction_match_pct": 0.0,
+      "compilation_unit": "Current C / l3d_resource_parser.c / 0x004682A0-0x00468430",
+      "unit_confidence": "CONFIGURED",
+      "unit_basis": "CURRENT_C",
+      "raw_match_pct": 7.9078,
+      "instruction_match_pct": 25.9784,
       "reccmp_match_pct": null,
-      "status": "named"
+      "status": "source"
     },
     {
       "address": "0x00468C80",
