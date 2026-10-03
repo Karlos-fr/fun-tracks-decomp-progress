@@ -22,6 +22,10 @@
     "explicit_compilation_units": 49,
     "active_compilation_units": 48,
     "validation": {
+      "finished_functions": 760,
+      "finished_bytes": 116503,
+      "finished_function_pct": 75.09881422924902,
+      "finished_byte_pct": 26.38207966956447,
       "unit_iso_functions": 744,
       "unit_iso_bytes": 112612,
       "unit_iso_function_pct": 73.51778656126483,
