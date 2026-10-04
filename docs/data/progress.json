@@ -906,7 +906,7 @@
     {
       "address": "0x00404A40",
       "size": 19362,
-      "symbol": "FUN_00404A40",
+      "symbol": "InitializeTrackLabelRecordBanks",
       "function_class": "UNKNOWN",
       "compilation_unit": "Current C / fun_00404a40.c / 0x00404A40-0x00404A40",
       "unit_confidence": "CONFIGURED",
@@ -3807,11 +3807,11 @@
       "compilation_unit": "No current compilation unit",
       "unit_confidence": null,
       "unit_basis": "NO_CURRENT_C_UNIT",
-      "unit_iso_pct": 54.4625,
+      "unit_iso_pct": 61.6922,
       "cu_iso_pct": null,
       "cu_exact": null,
-      "raw_match_pct": 5.3603,
-      "instruction_match_pct": 54.4625,
+      "raw_match_pct": 18.8305,
+      "instruction_match_pct": 61.6922,
       "reccmp_match_pct": null,
       "status": "source"
     },
