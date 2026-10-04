@@ -8,34 +8,34 @@
     "status_counts": {
       "unknown": 0,
       "named": 21,
-      "source": 194,
-      "codegen_exact": 116,
+      "source": 193,
+      "codegen_exact": 117,
       "binary_exact": 681
     },
     "status_bytes": {
       "unknown": 0,
       "named": 39091,
-      "source": 266318,
-      "codegen_exact": 44755,
+      "source": 265591,
+      "codegen_exact": 45482,
       "binary_exact": 91435
     },
     "explicit_compilation_units": 69,
     "active_compilation_units": 68,
     "validation": {
-      "finished_functions": 804,
-      "finished_bytes": 137577,
-      "finished_function_pct": 79.44664031620553,
-      "finished_byte_pct": 31.154282505168716,
-      "unit_iso_functions": 788,
-      "unit_iso_bytes": 133686,
-      "unit_iso_function_pct": 77.86561264822134,
-      "unit_iso_byte_pct": 30.273166379452853,
+      "finished_functions": 805,
+      "finished_bytes": 138304,
+      "finished_function_pct": 79.54545454545455,
+      "finished_byte_pct": 31.31891150115829,
+      "unit_iso_functions": 789,
+      "unit_iso_bytes": 134413,
+      "unit_iso_function_pct": 77.96442687747036,
+      "unit_iso_byte_pct": 30.437795375442427,
       "cu_iso_functions": 243,
       "cu_iso_bytes": 32915,
       "cu_iso_function_pct": 24.011857707509883,
       "cu_iso_byte_pct": 7.453594777162086,
-      "unit_iso_not_cu_functions": 552,
-      "unit_iso_not_cu_bytes": 103038
+      "unit_iso_not_cu_functions": 553,
+      "unit_iso_not_cu_bytes": 103765
     }
   },
   "functions": [
@@ -11503,13 +11503,13 @@
       "compilation_unit": "Current C / sound_backend_unit.c / 0x00465EC0-0x00467A50",
       "unit_confidence": "CONFIGURED",
       "unit_basis": "CURRENT_C",
-      "unit_iso_pct": 52.0408,
+      "unit_iso_pct": 100.0,
       "cu_iso_pct": 15.956,
       "cu_exact": "NO",
-      "raw_match_pct": 61.2105,
-      "instruction_match_pct": 52.0408,
+      "raw_match_pct": 100.0,
+      "instruction_match_pct": 100.0,
       "reccmp_match_pct": null,
-      "status": "source"
+      "status": "codegen_exact"
     },
     {
       "address": "0x00467920",
