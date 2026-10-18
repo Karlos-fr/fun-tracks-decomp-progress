@@ -4,9 +4,9 @@
 const STATUS={
   unknown:{label:'Unqualified',color:'#3a3a3c',score:0},
   named:{label:'Named',color:'#d7a81c',score:1},
-  source:{label:'C reconstructed',color:'#1583bd',score:2},
-  codegen_exact:{label:'Codegen exact',color:'#13a6b2',score:3},
-  binary_exact:{label:'Binary exact',color:'#0ca770',score:4}
+  source:{label:'In progress',color:'#1583bd',score:2},
+  codegen_exact:{label:'Code match',color:'#13a6b2',score:3},
+  binary_exact:{label:'Exact',color:'#0ca770',score:4}
 };
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const state={
@@ -35,6 +35,11 @@ function exactStats(fs){
   const exactFns=fs.filter(f=>f.status==='binary_exact');
   const exactBytes=exactFns.reduce((s,f)=>s+f.size,0);
   return{functions:exactFns.length,bytes:exactBytes,functionPct:100*exactFns.length/Math.max(1,fs.length),bytePct:100*exactBytes/Math.max(1,fs.reduce((s,f)=>s+f.size,0))};
+}
+function fullyExactUnits(fs){
+  const units=new Map();
+  for(const f of fs){if(f.unit_basis!=='CURRENT_C')continue;const u=f.compilation_unit||'UNASSIGNED';if(!units.has(u))units.set(u,true);if(!(f.cu_exact==='YES'||f.cu_exact===true))units.set(u,false)}
+  return{done:[...units.values()].filter(Boolean).length,total:units.size};
 }
 function aggregate(items){
   const groups=new Map();
@@ -137,14 +142,14 @@ function locate(e){const b=canvas.getBoundingClientRect(),x=e.clientX-b.left,y=e
 function sizeRank(i){return state.sizeRanks.get(i.address)||100}
 function tooltipHtml(i,touchHint=false){
   if(i.kind==='group')return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.name)+'</div><div class="tooltip-row"><span>BASIS</span><b>'+unitBasisLabel(i.unit_basis)+'</b></div><div class="tooltip-row"><span>FUNCTIONS</span><b>'+i.functions.length+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+'</b></div><div class="tooltip-row"><span>EXACT FUNCTIONS</span><b>'+fmtPct(i.exactFunctionPct)+'</b></div><div class="tooltip-row"><span>EXACT BYTES</span><b>'+fmtPct(i.exactBytePct)+'</b></div><div class="tooltip-row"><span>UNIT CONFIDENCE</span><b>'+esc(i.unit_confidence||'—')+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,i.exactBytePct))+'%"></i></div>'+(touchHint?'<div class="tooltip-hint">TAP AGAIN TO OPEN</div>':'')+'</div>';
-  const pct=statusPct(i),rank=sizeRank(i);return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.symbol)+'</div><div class="tooltip-row"><span>ADDRESS</span><b>'+esc(i.address)+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+' · TOP '+rank.toFixed(rank<10?1:0)+'%</b></div><div class="tooltip-row"><span>STATUS</span><b>'+esc(STATUS[i.status]?.label||i.status)+'</b></div><div class="tooltip-row"><span>C RECONSTRUCTED</span><b>'+(cReconstructed(i)?'YES':'NO')+'</b></div><div class="tooltip-row"><span>INSTRUCTION MATCH</span><b>'+fmtPct(i.instruction_match_pct)+'</b></div><div class="tooltip-row"><span>LINKED MATCH</span><b>'+fmtPct(i.reccmp_match_pct)+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,pct))+'%"></i></div></div>';
+  const pct=statusPct(i);return'<div class="tooltip-inner"><div class="tooltip-title">'+esc(i.symbol)+'</div><div class="tooltip-row"><span>ADDRESS</span><b>'+esc(i.address)+'</b></div><div class="tooltip-row"><span>SIZE</span><b>'+fmtBytes(i.size)+'</b></div><div class="tooltip-row"><span>STATUS</span><b>'+esc(STATUS[i.status]?.label||i.status)+'</b></div><div class="tooltip-row"><span>C RECONSTRUCTED</span><b>'+(cReconstructed(i)?'Yes':'No')+'</b></div><div class="tooltip-row"><span>INSTRUCTION MATCH</span><b>'+fmtPct(i.instruction_match_pct)+'</b></div><div class="tooltip-row"><span>LINKED MATCH</span><b>'+fmtPct(i.reccmp_match_pct)+'</b></div><div class="tooltip-meter"><i style="width:'+Math.max(0,Math.min(100,pct))+'%"></i></div></div>';
 }
 function placeTooltip(e){const stage=canvas.parentElement.getBoundingClientRect(),box=tooltip.getBoundingClientRect();let left=e.clientX-stage.left+18,top=e.clientY-stage.top+18;if(left+box.width>stage.width-8)left=e.clientX-stage.left-box.width-18;if(top+box.height>stage.height-8)top=e.clientY-stage.top-box.height-18;tooltip.style.left=Math.max(8,left)+'px';tooltip.style.top=Math.max(8,top)+'px'}
 function showTooltip(r,e,touchHint=false){if(!r){tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK';return}tooltip.innerHTML=tooltipHtml(r.item,touchHint);tooltip.hidden=false;placeTooltip(e);const i=r.item;hoverReadout.textContent=i.kind==='group'?i.name+' · '+i.functions.length+' FUNCTIONS':i.address+' · '+i.symbol}
 function showDetail(i){
   state.selectedKey=itemKey(i);
   if(i.kind==='group'){detail.innerHTML='<div class="inspector-number">'+String(Math.min(99,i.functions.length)).padStart(2,'0')+'</div><div><h2>'+esc(i.name)+'</h2><p>'+i.functions.length+' functions · '+fmtBytes(i.size)+' · '+fmtPct(i.exactBytePct)+' of bytes exact.</p><div class="detail-grid"><div><span>EXACT FUNCTIONS</span><strong>'+fmtPct(i.exactFunctionPct)+'</strong></div><div><span>EXACT BYTES</span><strong>'+fmtPct(i.exactBytePct)+'</strong></div><div><span>UNIT CONFIDENCE</span><strong>'+esc(i.unit_confidence||'—')+'</strong></div><div><span>SIZE</span><strong>'+fmtBytes(i.size)+'</strong></div></div></div>';return}
-  const pct=statusPct(i),rank=sizeRank(i);detail.innerHTML='<div class="inspector-number">'+Math.round(pct)+'</div><div><h2>'+esc(i.symbol)+'</h2><p>'+esc(i.address)+' · '+fmtBytes(i.size)+' · '+esc(STATUS[i.status]?.label||i.status)+'</p><div class="detail-grid"><div><span>CURRENT COMPILATION UNIT</span><strong>'+esc(i.compilation_unit||'UNASSIGNED')+'</strong></div><div><span>CLASS</span><strong>'+esc(i.function_class||'—')+'</strong></div><div><span>C RECONSTRUCTED</span><strong>'+(cReconstructed(i)?'YES':'NO')+'</strong></div><div><span>SIZE RANK</span><strong>TOP '+rank.toFixed(rank<10?1:0)+'%</strong></div><div><span>INSTRUCTION MATCH</span><strong>'+fmtPct(i.instruction_match_pct)+'</strong></div><div><span>LINKED MATCH</span><strong>'+fmtPct(i.reccmp_match_pct)+'</strong></div><div><span>RAW MATCH</span><strong>'+fmtPct(i.raw_match_pct)+'</strong></div><div><span>STATUS</span><strong>'+esc(STATUS[i.status]?.label||i.status)+'</strong></div></div></div>';
+  const pct=statusPct(i);detail.innerHTML='<div class="inspector-number">'+Math.round(pct)+'</div><div><h2>'+esc(i.symbol)+'</h2><p>'+esc(i.address)+' · '+fmtBytes(i.size)+' · '+esc(STATUS[i.status]?.label||i.status)+'</p><div class="detail-grid"><div><span>CURRENT COMPILATION UNIT</span><strong>'+esc(i.compilation_unit||'UNASSIGNED')+'</strong></div><div><span>CLASS</span><strong>'+esc(i.function_class||'—')+'</strong></div><div><span>C RECONSTRUCTED</span><strong>'+(cReconstructed(i)?'Yes':'No')+'</strong></div><div><span>INSTRUCTION MATCH</span><strong>'+fmtPct(i.instruction_match_pct)+'</strong></div><div><span>LINKED MATCH</span><strong>'+fmtPct(i.reccmp_match_pct)+'</strong></div><div><span>RAW MATCH</span><strong>'+fmtPct(i.raw_match_pct)+'</strong></div><div><span>STATUS</span><strong>'+esc(STATUS[i.status]?.label||i.status)+'</strong></div></div></div>';
 }
 function clearTouchFocus(){state.touchArmed=null;state.hoveredKey=null;tooltip.hidden=true;hoverReadout.textContent='MOVE OVER A BLOCK'}
 function setHover(i){const key=i?itemKey(i):null;if(key!==state.hoveredKey){state.hoveredKey=key;state.hoverStarted=performance.now();schedule()}}
@@ -238,11 +243,11 @@ fetch('data/progress.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error
   const sizes=[...data.functions].sort((a,b)=>b.size-a.size);sizes.forEach((f,index)=>state.sizeRanks.set(f.address,100*(index+1)/sizes.length));
   const first=data.functions[0],last=data.functions[data.functions.length-1];if(first&&last)radarRange.textContent=first.address+' → '+last.address;
   const c=data.summary.status_counts,total=Math.max(1,data.summary.functions),v=data.summary.validation||{},legacyExact=c.binary_exact||0,doneFns=v.finished_functions??v.unit_iso_functions??legacyExact,doneFunctionPct=v.finished_function_pct??v.unit_iso_function_pct??(100*legacyExact/total),unitFns=v.unit_iso_functions??legacyExact,cuFns=v.cu_iso_functions??legacyExact,cuBytes=v.cu_iso_bytes??(data.summary.status_bytes?.binary_exact||data.functions.filter(f=>f.status==='binary_exact').reduce((s,f)=>s+f.size,0)),cuBytePct=v.cu_iso_byte_pct??(100*cuBytes/Math.max(1,data.summary.bytes)),angle1=doneFunctionPct*2.7,angle2=cuBytePct*2.7;
+  const isoUnits=fullyExactUnits(data.functions);
   stats.innerHTML='<div class="gauge-card"><div class="gauge" data-target-angle="'+angle1+'" data-target-pct="'+doneFunctionPct+'" style="--angle:0deg;--needle:-135deg"><div class="gauge-readout">0.0%</div></div><div class="gauge-copy"><strong>'+doneFns+' / '+total+'</strong><span>FPO DONE</span><small>Etat TERMINE</small></div></div>'+
     '<div class="gauge-card"><div class="gauge" data-target-angle="'+angle2+'" data-target-pct="'+cuBytePct+'" style="--angle:0deg;--needle:-135deg"><div class="gauge-readout">0.0%</div></div><div class="gauge-copy"><strong>'+fmtBytes(cuBytes)+'</strong><span>CU ISO CODE</span><small>'+cuFns.toLocaleString('en-US')+' functions</small></div></div>'+
     '<div class="stat"><strong>'+fmtBytes(data.summary.bytes)+'</strong><span>TRACKED CODE</span><small>'+data.summary.functions.toLocaleString('en-US')+' functions</small></div>'+
-    '<div class="stat"><strong>'+unitFns+'</strong><span>UNIT ISO</span><small>routine exact</small></div>'+
-    '<div class="stat"><strong>'+(data.summary.active_compilation_units||0)+'</strong><span>C UNITS IN PROGRESS</span><small>current groups incl. unassigned</small></div>';
+    '<div class="stat"><strong>'+isoUnits.done+' / '+isoUnits.total+'</strong><span>UNITS 100% ISO</span><small>compilation units fully exact</small></div>';
   const gaugeStart=performance.now();
   const gaugeDuration=reducedMotion?0:1150;
   const animateGauges=now=>{
